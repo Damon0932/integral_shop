@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// shop
+Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => 'wechat.oauth'], function () {
+    Route::get('/', 'ShopController@index')->name('index');
+});
