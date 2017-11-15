@@ -177,6 +177,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         /*
+         * shop
+         */
+        zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
+        /*
          * ide helper
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,

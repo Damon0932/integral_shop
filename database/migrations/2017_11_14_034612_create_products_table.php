@@ -15,16 +15,18 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
+            $table->integer('category_id')->unsigned()->nullable();
             $table->string('name');
-            $table->string('description');
-            $table->string('keyword');
+            $table->string('description')->nullable();
+            $table->string('keyword')->nullable();
+            $table->string('spec');
+            $table->string('logo_url');
             $table->decimal('price', 10, 2);
             $table->decimal('integral', 10, 2);
-            $table->boolean('on_sale')->default(0)->comment('1.上架 0.不上架 ');
-            $table->integer('sale_counts')->unsigned();
-            $table->integer('view_counts')->unsigned();
-            $table->integer('weight')->nullable()->default(0)->comment('权重');
+            $table->boolean('on_sale')->default(0);
+            $table->integer('sale_counts')->unsigned()->nullable();
+            $table->integer('view_counts')->unsigned()->nullable();
+            $table->integer('order')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
 
