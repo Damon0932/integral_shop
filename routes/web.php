@@ -22,4 +22,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 // shop
 Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => 'wechat.oauth'], function () {
     Route::get('/', 'ShopController@index')->name('index');
+    Route::resource('category', CategoryController::class);
+    Route::resource('category', CategoryController::class);
 });
