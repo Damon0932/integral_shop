@@ -37,7 +37,6 @@
         <dd>
           <label>
             <select name="" id="Province">
-              <option value="">请选择</option>
             </select>
           </label>
         </dd>
@@ -47,7 +46,6 @@
           <dd>
             <label>
               <select name="" id="City">
-                <option value="">请选择</option>
               </select>
             </label>
           </dd>
@@ -57,7 +55,6 @@
             <dd>
               <label>
                 <select name="" id="Area">
-                  <option value="">请选择</option>
                 </select>
               </label>
             </dd>

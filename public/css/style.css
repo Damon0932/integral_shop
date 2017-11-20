@@ -154,7 +154,7 @@ a, a:active, a:hover {
       font-size: .333333rem;
       line-height: 1.8; }
   .tabbar .active .tabbar_title {
-    color: #03bc01; }
+    color: #45b3df; }
 
 .myBalance {
   display: -webkit-box;
@@ -1011,7 +1011,7 @@ a, a:active, a:hover {
       border: 0;
       background: transparent;
       position: relative;
-      padding-left: .266667rem; }
+      width: 100%; }
       .rollin dl select option, .editAddress dl select option {
         color: #b4b4b4; }
     .rollin dl input, .editAddress dl input {
@@ -1023,7 +1023,7 @@ a, a:active, a:hover {
       border: 0;
       border-radius: 0;
       font-size: .373333rem;
-      padding-left: .266667rem; }
+      width: 100%; }
     .rollin dl textarea, .editAddress dl textarea {
       border: 0;
       height: 1.2rem;
