@@ -36,7 +36,7 @@
         <dt>省份</dt>
         <dd>
           <label>
-            <select name="" id="">
+            <select name="" id="Province">
               <option value="">请选择</option>
             </select>
           </label>
@@ -46,7 +46,7 @@
           <dt>城市</dt>
           <dd>
             <label>
-              <select name="" id="">
+              <select name="" id="City">
                 <option value="">请选择</option>
               </select>
             </label>
@@ -56,7 +56,7 @@
             <dt>区县</dt>
             <dd>
               <label>
-                <select name="" id="">
+                <select name="" id="Area">
                   <option value="">请选择</option>
                 </select>
               </label>
@@ -77,6 +77,13 @@
   </div>
 
   <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+  <script src="js/address.js"></script>
+  <script>
+    addressInit('Province', 'City', 'Area');
+    $('.submit').click(function(){
+      console.log($("#Province").val())
+    })
+  </script>
 </body>
 
 </html>
