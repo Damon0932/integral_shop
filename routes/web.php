@@ -19,9 +19,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// wechat
+Route::any('/wechat', 'Wechat/WechatController@serve');
+
 // shop
 Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => 'wechat.oauth'], function () {
     Route::get('/', 'ShopController@index')->name('index');
-    Route::resource('category', CategoryController::class);
-    Route::resource('category', CategoryController::class);
+    //Route::resource('category', CategoryController::class);
 });
