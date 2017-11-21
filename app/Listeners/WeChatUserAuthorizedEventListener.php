@@ -27,12 +27,11 @@ class WeChatUserAuthorizedEventListener
      */
     public function handle(WeChatUserAuthorized $event)
     {
-        \Log::info($event->user);
-        Customer::firstOrCreate(['openid' => $event->user->openid], [
-            'open_id' => $event->user->openid,
-            'unionid' => $event->user->unionid,
-            'nickname' => $event->user->nickname,
-            'head_image_url' => $event->user->head_image_url,
+        \Log::info($event->user->toArray());
+        Customer::firstOrCreate(['openid' => $event->user->getId()], [
+            'open_id' => $event->user->getId(),
+            'unionid' => $event->user->getOriginal()['unionid'],
+            'nickname' => $event->user->getNickname()
         ]);
     }
 }
