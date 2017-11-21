@@ -2,13 +2,12 @@
 
 namespace App\Listeners;
 
-use App\Events\Event;
 use App\Models\Customer;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Overtrue\LaravelWechat\Events\WeChatUserAuthorized;
 
-class EventListener
+class WeChatUserAuthorizedEventListener
 {
     /**
      * Create the event listener.
