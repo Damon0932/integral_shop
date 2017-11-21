@@ -23,7 +23,7 @@
 			<p>当前可用余额</p>
 			<p>2500</p>
 		</div>
-		<a href="" class="rollin">积分转入</a>
+		<a href="" class="rollin_btn">积分转入</a>
 	</div>
 	<div class="integral_hd">
 		<div class="left">变动记录</div>
