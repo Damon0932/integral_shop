@@ -12,17 +12,9 @@
 </head>
 
 <body>
-	<header class="header">
-		<div class="goback">
-			<a href="javascript:;"></a>
-		</div>
-		<div class="title">我的M豆</div>
-	</header>
 	<div class="headBalance">
-		<div class="balance_num">
-			<p>当前可用余额</p>
-			<p>2500</p>
-		</div>
+		<p>当前可用M豆</p>
+		<div class="balance_num">2500</div>
 		<a href="" class="rollin_btn">积分转入</a>
 	</div>
 	<div class="integral_hd">

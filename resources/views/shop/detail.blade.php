@@ -39,7 +39,7 @@
 			</div>
 		</div>
 		<div class="detailImg">
-			<div class="detail_header">图文详情</div>
+			<div class="detail_header"><i class="iconfont icon-image"></i>图文详情</div>
 			<div class="img_list">
 					<img class="init_pic" src="//img30.360buyimg.com/popWaterMark/jfs/t7567/26/3015196551/614399/3f95d777/59b8df0aNd29ddcd3.jpg" alt="">
 					<img class="init_pic" src="//img30.360buyimg.com/popWaterMark/jfs/t8728/345/1373510053/140865/d7072842/59b8df0dN977ef09e.jpg" alt="">

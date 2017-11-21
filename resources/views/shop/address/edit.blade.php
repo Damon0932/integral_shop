@@ -12,12 +12,6 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="goback">
-      <a href="javascript:;"></a>
-    </div>
-    <div class="title">新增地址</div>
-  </header>
   <div class="editAddress">
     <form action="">
       <dl>

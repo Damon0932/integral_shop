@@ -12,12 +12,6 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="goback">
-      <a href="javascript:;"></a>
-    </div>
-    <div class="title">提交订单</div>
-  </header>
   <div class="userOrder">
     <div class="userInfo">
       <p>

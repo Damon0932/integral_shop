@@ -12,18 +12,10 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="goback">
-      <a href="javascript:;"></a>
-    </div>
-    <div class="title">我的M豆</div>
-  </header>
   <div class="integral_info">
     <div class="date">2017年11月</div>
     <p class="info">转入：+800 兑换：-300</p>
-    <span class="select_time">
-      <img src="images/time_picker.png" id="date-selector" alt="">
-    </span>
+    <span class="select_time iconfont icon-riqi" id="date-selector"></span>
   </div>
   <div class="integral_list">
     <div class="integral_item">

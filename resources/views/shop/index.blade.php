@@ -7,18 +7,22 @@
   <meta content="telephone=no,email=no" name="format-detection">
   <title>首页</title>
   <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts/iconfont.css">
   <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
   <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script>
 </head>
 
 <body touchstart>
-  <div class="myBalance">
-    <a href="" class="rule">M豆规则？</a>
+   <div class="myBalance">
+    <img src="images/logo.png" class="logo" alt="">
     <div class="balance">
+      <div class="balance_text">
+        <a href="" class="rule">M豆规则？</a>
+        <a href="" class="detail">查看明细</a>
+      </div>
       <p>120</p>
       <p>可用M豆</p>
     </div>
-    <a href="" class="detail">查看明细</a>
   </div>
   <div id="topNav">
     <div class="swiper-wrapper">
@@ -71,18 +75,18 @@
       </div>
     </div>
   </article>
-  <div class="tabbar">
-    <a href="" class="tabbar_item">
-      <img src="images/time_picker.png" alt="" class="tabbar_icon">
-      <p class="tabbar_title">首页</p>
-    </a>
-    <a href="" class="tabbar_item">
-      <img src="images/time_picker.png" alt="" class="tabbar_icon">
-      <p class="tabbar_title">首页</p>
-    </a>
+ <div class="tabbar">
     <a href="" class="tabbar_item active">
-      <img src="images/time_picker.png" alt="" class="tabbar_icon">
+      <span class="icon iconfont icon-shouye"></span>
       <p class="tabbar_title">首页</p>
+    </a>
+    <a href="" class="tabbar_item">
+      <span class="icon iconfont icon-duihuanjilu-copy"></span>
+      <p class="tabbar_title">兑换记录</p>
+    </a>
+    <a href="" class="tabbar_item">
+      <span class="icon iconfont icon-modou"></span>
+      <p class="tabbar_title">我的M豆</p>
     </a>
   </div>
   <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>

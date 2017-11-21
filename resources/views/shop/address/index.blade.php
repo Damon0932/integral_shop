@@ -12,12 +12,6 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="goback">
-      <a href="javascript:;"></a>
-    </div>
-    <div class="title">收货地址</div>
-  </header>
   <div class="addressList">
     <div class="address">
       <div class="select"></div>
