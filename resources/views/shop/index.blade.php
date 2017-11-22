@@ -52,7 +52,7 @@
                 @if(session('med_beans') >= $product->integral)
                     <a href="" class="exchange">立即兑换</a>
                 @else
-                    <a href="" class="exchange">立即兑换</a>
+                    <a href="#" class="notenough">M豆不足</a>
                 @endif
             </div>
         </a>
