@@ -1,7 +1,6 @@
 @extends('layouts.shop', [
     'title'   => '商品详情',
     'tar_bar' => 'detail'
-    'tar_bar' => 'detail'
 ])
 
 @section('content')
