@@ -45,7 +45,6 @@ class Kernel extends HttpKernel
         'shop' => [
             \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
             \App\Http\Middleware\GetBeans::class,
-
         ]
     ];
 

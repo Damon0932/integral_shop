@@ -16,8 +16,13 @@ class GetBeans
      */
     public function handle($request, Closure $next)
     {
-        $beans = Customer::whereUnionid(session('med_union'))->first()->beans;
-        session('med_beans', $beans);
+        if (session('med_union')) {
+            $beans = Customer::whereUnionid(session('med_union'))->first()->beans;
+            session('med_beans', $beans);
+        } else {
+            session('med_beans', 0);
+        }
+
         return $next($request);
     }
 }

@@ -29,5 +29,33 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
-    //
+
+    /**
+     * @param $customerId
+     * @param $productId
+     * @param array $address
+     */
+    public static function create($customerId, $productId, array $address)
+    {
+        $product = Product::find($productId);
+        $options = [
+            'customer_id' => $customerId,
+            //'order_sn' =>,
+            'integral_fee' => $product->integral,
+            'status' => 0,
+        ];
+        $order = parent::create($options);
+        $order->addDetail($address);
+
+        return $order;
+    }
+
+    /**
+     * @param array $address
+     * @return $this
+     */
+    public function addDetail(array $address)
+    {
+        return $this;
+    }
 }
