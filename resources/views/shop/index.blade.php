@@ -50,9 +50,9 @@
                     <em>￥{{$product->price}}</em>
                 </p>
                 @if(session('med_beans') >= $product->integral)
-                    <a href="" class="exchange">立即兑换</a>
+                    <span class="exchange">立即兑换</span>
                 @else
-                    <a href="#" class="notenough">M豆不足</a>
+                    <span class="notenough">M豆不足</span>
                 @endif
             </div>
         </a>
