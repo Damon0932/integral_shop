@@ -41,6 +41,12 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'shop' => [
+            \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
+            \App\Http\Middleware\GetBeans::class,
+
+        ]
     ];
 
     /**
