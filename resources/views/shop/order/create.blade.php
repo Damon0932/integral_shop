@@ -13,6 +13,7 @@
 
 <body>
   <div class="userOrder">
+	<i class="iconfont icon-location"></i>
     <div class="userInfo">
       <p>
         <span>收货人：</span>
