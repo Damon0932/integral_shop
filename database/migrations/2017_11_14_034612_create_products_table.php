@@ -24,24 +24,24 @@ class CreateProductsTable extends Migration
             $table->decimal('price', 10, 2);
             $table->decimal('integral', 10, 2);
             $table->boolean('on_sale')->default(0);
-            $table->integer('sale_counts')->unsigned()->nullable();
-            $table->integer('view_counts')->unsigned()->nullable();
+            $table->integer('sale_counts')->unsigned()->default(0);
+            $table->integer('view_counts')->unsigned()->default(0);
             $table->integer('order')->nullable()->default(0);
+            $table->integer('inventory')->unsigned()->nullable();
+            $table->text('detail')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
             $table->foreign('category_id')->references('id')->on('categories');
         });
 
-        Schema::create('product_details', function (Blueprint $table) {
+        Schema::create('product_banners', function (Blueprint $table) {
             // TODO 字段补全
             $table->increments('id');
             $table->integer('product_id')->unsigned();
-            $table->integer('inventory')->unsigned()->nullable();
-            $table->text('detail')->nullable();
-            $table->timestamps();
-
+            $table->string('banner_url');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->timestamps();
         });
 
         Schema::create('product_edit_logs', function (Blueprint $table) {
@@ -88,15 +88,15 @@ class CreateProductsTable extends Migration
             $table->dropForeign('product_edit_logs_product_id_foreign');
             $table->dropForeign('product_edit_logs_user_id_foreign');
         });
-        Schema::table('product_details', function (Blueprint $table) {
-            $table->dropForeign('product_details_product_id_foreign');
+        Schema::table('product_banners', function (Blueprint $table) {
+            $table->dropForeign('product_banners_product_id_foreign');
         });
         Schema::table('products', function (Blueprint $table) {
             $table->dropForeign('products_category_id_foreign');
         });
         Schema::dropIfExists('product_price_edit_logs');
         Schema::dropIfExists('product_edit_logs');
-        Schema::dropIfExists('product_details');
+        Schema::dropIfExists('product_banners');
         Schema::dropIfExists('products');
     }
 }

@@ -45,14 +45,39 @@ use Spatie\EloquentSortable\SortableTrait;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product ordered($direction = 'asc')
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereLogoUrl($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereSpec($value)
+ * @property int|null $inventory
+ * @property string|null $detail
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProductBanner[] $banners
+ * @property-read mixed $logo
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereDetail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereInventory($value)
  */
 class Product extends Model implements Sortable
 {
     use SortableTrait;
 
+    /**
+     * @var array
+     */
     public $sortable = [
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function banners()
+    {
+        return $this->hasMany(ProductBanner::class);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLogoAttribute()
+    {
+        return '//' . config('filesystems')['disks']['qiniu']['domains']['default'] . '/' . $this->logo_url;
+    }
 
 }
