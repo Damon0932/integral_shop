@@ -19,6 +19,7 @@ class CreateCustomersTable extends Migration
             $table->string('unionid')->unique()->nullable();
             $table->string('nickname')->nullable();
             $table->string('head_image_url')->nullable();
+            $table->decimal('beans')->default(0);
             $table->timestamps();
         });
     }

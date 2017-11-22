@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ProductBanner whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\ProductBanner whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \App\Models\Product $product
  */
 class ProductBanner extends Model
 {
@@ -30,6 +31,9 @@ class ProductBanner extends Model
     protected $fillable = ['product_id', 'banner_url'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function product()
     {
         return $this->belongsTo(Product::class);

@@ -11,19 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
+// backend
 Route::get('/home', 'HomeController@index')->name('home');
 
 // wechat
 Route::any('/wechat', 'Wechat/WechatController@serve');
 
-// shop
-Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => 'wechat.oauth'], function () {
-    Route::get('/', 'ShopController@index')->name('index');
+//// shop
+Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => 'wechat.oauth,beans'], function () {
+    Route::resource('product', ProductController::class);
     //Route::resource('category', CategoryController::class);
 });

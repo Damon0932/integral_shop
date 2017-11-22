@@ -28,6 +28,7 @@ class WeChatUserAuthorizedEventListener
     public function handle(WeChatUserAuthorized $event)
     {
         \Log::info($event->user->toArray());
+        session('med_union', $event->user->getOriginal()['unionid']);
         Customer::firstOrCreate(['openid' => $event->user->getId()], [
             'open_id' => $event->user->getId(),
             'unionid' => $event->user->getOriginal()['unionid'],

@@ -41,7 +41,12 @@
     </div>
 </section>
 <div class="exchangeBox">
-    <a href="" class="exchange_btn">立即兑换</a><!-- 添加class:disabled M豆不足 -->
+    @if(session('med_beans') >= $product->integral)
+        <a href="" class="exchange_btn">立即兑换</a>
+    @else
+        <a href="" class="exchange_btn disabled">M豆不足</a>
+    @endif
+
 </div>
 <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
