@@ -102,37 +102,29 @@
 <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
 <script>
-    var navTop = $('#topNav').offset().top;
+  var navTop = $('#topNav').offset().top;
     $(window).scroll(function () {
-        var yheight = getScrollTop();
-        if (yheight > navTop) {
-            $("#topNav").addClass("fixNav")
-        } else {
-            $("#topNav").removeClass("fixNav");
-        }
+      var yheight = getScrollTop();
+      if (yheight > navTop) {
+        $("#topNav").addClass("fixNav")
+      } else {
+        $("#topNav").removeClass("fixNav");
+      }
     })
     function getScrollTop() {
-        var scrollPos;
-        if (window.pageYOffset) {
-            scrollPos = window.pageYOffset;
-        }
-        else if (document.compatMode && document.compatMode != 'BackCompat') {
-            scrollPos = document.documentElement.scrollTop;
-        }
-        else if (document
-            var mySwiper
-    .
-        body
-    )
-        {
-            scrollPos = document.body.scrollTop;
-        }
-        return scrollPos;
+      var scrollPos;
+      if (window.pageYOffset) {
+        scrollPos = window.pageYOffset;
+      }
+      else if (document.compatMode && document.compatMode != 'BackCompat') { scrollPos = document.documentElement.scrollTop; }
+      else if (document.body) { scrollPos = document.body.scrollTop; }
+      return scrollPos;
     }
-    = new Swiper('#topNav', {
-        freeMode: true,
-        slidesPerView: 'auto',
-        freeModeSticky: true,
+
+    var mySwiper = new Swiper('#topNav', {
+      freeMode: true,
+      slidesPerView: 'auto',
+      freeModeSticky: true,
     });
 
     swiperWidth = mySwiper.container[0].clientWidth
@@ -140,26 +132,26 @@
     maxWidth = -maxTranslate + swiperWidth / 2
 
     $(".swiper-container").on('touchstart', function (e) {
-        e.preventDefault()
+      e.preventDefault()
     })
 
     mySwiper.on('tap', function (swiper, e) {
-        slide = swiper.slides[swiper.clickedIndex]
-        slideLeft = slide.offsetLeft
-        slideWidth = slide.clientWidth
-        slideCenter = slideLeft + slideWidth / 2
-        // 被点击slide的中心点
-        mySwiper.setWrapperTransition(300)
-        if (slideCenter < swiperWidth / 2) {
-            mySwiper.setWrapperTranslate(0)
-        } else if (slideCenter > maxWidth) {
-            mySwiper.setWrapperTranslate(maxTranslate)
-        } else {
-            nowTlanslate = slideCenter - swiperWidth / 2
-            mySwiper.setWrapperTranslate(-nowTlanslate)
-        }
-        $("#topNav  .active").removeClass('active')
-        $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active')
+      slide = swiper.slides[swiper.clickedIndex]
+      slideLeft = slide.offsetLeft
+      slideWidth = slide.clientWidth
+      slideCenter = slideLeft + slideWidth / 2
+      // 被点击slide的中心点
+      mySwiper.setWrapperTransition(300)
+      if (slideCenter < swiperWidth / 2) {
+        mySwiper.setWrapperTranslate(0)
+      } else if (slideCenter > maxWidth) {
+        mySwiper.setWrapperTranslate(maxTranslate)
+      } else {
+        nowTlanslate = slideCenter - swiperWidth / 2
+        mySwiper.setWrapperTranslate(-nowTlanslate)
+      }
+      $("#topNav  .active").removeClass('active')
+      $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active')
     })
 
 </script>
