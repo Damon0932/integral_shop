@@ -3,7 +3,7 @@
         @if(session('med_beans') >= $product->integral)
             <a href="" class="exchange_btn">立即兑换</a>
         @else
-            <a href="" class="exchange_btn disabled">M豆不足</a>
+            <a href="javascript:;" class="exchange_btn disabled">M豆不足</a>
         @endif
     </div>
 @elseif($tar_bar == 'pay')
