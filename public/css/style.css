@@ -403,16 +403,15 @@ a, a:active, a:hover {
     margin: .666667rem 0;
     text-align: center; }
   .headBalance .rollin_btn {
-    font-size: .4rem;
-    height: 1.066667rem;
-    line-height: 1.066667rem;
-    width: 8rem;
-    padding: 0 .266667rem;
+    width: 8.7733rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
     text-align: center;
+    font-size: .453rem;
     color: #fff;
+    font-weight: 700;
+    border-radius: .466667rem;
     background: #f38441;
-    border: 1px solid #f38441;
-    border-radius: .266667rem;
     margin: 0 auto;
     display: block; }
 
@@ -964,17 +963,18 @@ a, a:active, a:hover {
     margin: 1rem 0;
     text-align: center; }
     .rollin .submit button, .editAddress .submit button {
-      font-size: .4rem;
-      height: 1.066667rem;
-      line-height: 1.066667rem;
-      display: inline-block;
-      width: 8rem;
-      padding: 0 .266667rem;
+      width: 8.7733rem;
+      height: 1.2rem;
+      line-height: 1.2rem;
       text-align: center;
+      font-size: .453rem;
       color: #fff;
+      font-weight: 700;
+      border-radius: .466667rem;
       background: #f38441;
-      border: 1px solid #f38441;
-      border-radius: .266667rem; }
+      margin: 0 auto;
+      display: block;
+      border: none; }
 
 .rollin dt {
   width: 3rem; }
@@ -1045,17 +1045,18 @@ a, a:active, a:hover {
   text-align: center;
   margin-top: 1rem; }
   .addressBtn a {
-    font-size: .4rem;
-    height: 1.066667rem;
-    line-height: 1.066667rem;
-    display: inline-block;
-    width: 8rem;
-    padding: 0 .266667rem;
+    width: 8.7733rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
     text-align: center;
+    font-size: .453rem;
     color: #fff;
+    font-weight: 700;
+    border-radius: .466667rem;
     background: #f38441;
-    border: 1px solid #f38441;
-    border-radius: .266667rem; }
+    margin: 0 auto;
+    display: block;
+    border: none; }
     .addressBtn a + a {
       margin-top: .266667rem; }
 
