@@ -1,17 +1,17 @@
 @extends('layouts.shop', [
-    'title'   => '商城首页',
+    'title' => '商城首页',
     'tar_bar' => 'index',
-    'active' => 'shop',
+    'active' => 'product',
 ])
 
 @section('content')
     <div class="myBalance">
-        <img src="images/logo.png" class="logo" alt="">
+        <img src="/images/logo.png" class="logo" alt="">
 
         <div class="balance">
             <div class="balance_text">
-                <a href="" class="rule">M豆规则？</a>
-                <a href="" class="detail">查看明细</a>
+                <a href="#" class="rule">M豆规则？</a>
+                <a href="{{route('beans.index')}}" class="detail">查看明细</a>
             </div>
             <p>{{session('med_beans')}}</p>
 
