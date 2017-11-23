@@ -23,7 +23,7 @@ class CreateBeansLogsTable extends Migration
             $table->string('type')->nullable()->comment('1.兑换 2.消费');
 
             $table->integer('project_id')->unsigned()->nullable();
-            $table->decimal('exchanged_rate')->nullable();
+            $table->decimal('exchange_rate')->nullable();
 
             $table->integer('order_id')->unsigned()->nullable();
 

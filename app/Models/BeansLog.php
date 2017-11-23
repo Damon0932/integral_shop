@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int|null $customer_id
  * @property int|null $project_id
- * @property float $exchanged_rate
+ * @property float $exchange_rate
  * @property float $beans
  * @property float $integral
  * @property \Carbon\Carbon|null $created_at
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereCustomerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereExchangedRate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereExchangeRate($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereIntegral($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereProjectId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereUpdatedAt($value)
@@ -112,8 +112,8 @@ class BeansLog extends Model
         //$this->exchangeValidate($options);
         $project = Project::find($options['project_id']);
         $options['customer_id'] = session('med_user')['id'];
-        $options['beans'] = $options['integral'] * $project->exchanged_rate;
-        $options['exchanged_rate'] = $options['integral'] * $project->exchanged_rate;
+        $options['beans'] = $options['integral'] * $project->exchange_rate;
+        $options['exchange_rate'] = $project->exchange_rate;
         $options['type'] = 1;
         $options['description'] = '积分转入M豆，您的“' . $project->project_name_cn . '”微信平台' . $options['integral'] . '积分转入';
         $beansLog = BeansLog::create($options);
