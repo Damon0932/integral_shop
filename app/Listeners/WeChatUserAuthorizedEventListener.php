@@ -33,6 +33,6 @@ class WeChatUserAuthorizedEventListener
             'unionid' => $event->user->getOriginal()['unionid'],
             'nickname' => $event->user->getNickname()
         ]);
-        session(['med_user' => $customer]);
+        session(['med_user' => $customer->toArray()]);
     }
 }
