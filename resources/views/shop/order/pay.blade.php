@@ -6,15 +6,17 @@
     <form action="{{route('order.store')}}" method="post">
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <input type="hidden" name="product_id" value="{{$product->id}}">
-        <input type="hidden" name="address_phone" value="{{$defaultAddress->receiver_phone}}">
-        <input type="hidden" name="receiver_name" value="{{$defaultAddress->receiver_name}}">
-        <input type="hidden" name="province" value="{{$defaultAddress->province}}">
-        <input type="hidden" name="city" value="{{$defaultAddress->city}}">
-        <input type="hidden" name="district" value="{{$defaultAddress->district}}">
-        <input type="hidden" name="address" value="{{$defaultAddress->address}}">
+        <input type="hidden" name="address_phone" value="{{$defaultAddress?$defaultAddress->receiver_phone : ''}}">
+        <input type="hidden" name="receiver_name" value="{{$defaultAddress?$defaultAddress->receiver_name : ''}}">
+        <input type="hidden" name="province" value="{{$defaultAddress?$defaultAddress->province : ''}}">
+        <input type="hidden" name="city" value="{{$defaultAddress?$defaultAddress->city : ''}}">
+        <input type="hidden" name="district" value="{{$defaultAddress?$defaultAddress->district : ''}}">
+        <input type="hidden" name="address" value="{{$defaultAddress?$defaultAddress->address : ''}}">
 
         <div class="userOrder">
-            @if($defaultAddress)
+            @if(is_null($defaultAddress))
+                <a href="{{route('address.create')}}" class="noaddress"><img src="/images/address.png" alt="">添加地址</a>
+            @else
                 <i class="iconfont icon-location"></i>
                 <a href="" class="userInfo">
                     <p>
@@ -33,8 +35,7 @@
                     </p>
                 </a>
                 <div class="orderArrow"></div>
-            @else
-                <a href="{{route('address.create')}}" class="noaddress"><img src="/images/address.png" alt="">添加地址</a>
+
             @endif
         </div>
         <div class="goodOrders">
@@ -77,7 +78,11 @@
                     <small>￥</small>{{$product->price}}
                   </span>
             </div>
-            <a href="javascript:;" class="go_pay">去付款</a>
+            @if(is_null($defaultAddress))
+                <a href="javascript:;" class="go_pay">请选择地址</a>
+            @else
+                <a href="javascript:;" class="go_pay">去付款</a>
+            @endif
         </div>
 
         <div class="dialog dialog-open  dialog-modal" id="dialog" style="display:none">
@@ -89,7 +94,7 @@
                 <div class="dialog-content-bd content-scroll">确认支付？</div>
                 <div class="dialog-content-ft side">
                     <button class="dialog-btn dialog-btn-confirm" type="submit">确定</button>
-                    <button class="dialog-btn dialog-btn-cancel">取消</button>
+                    <button class="dialog-btn dialog-btn-cancel" type="button">取消</button>
                 </div>
             </div>
         </div>
