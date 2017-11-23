@@ -22,8 +22,10 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['shop'
     Route::resource('product', ProductController::class);
     Route::resource('beans', BeansController::class);
     Route::resource('order', OrderController::class);
+    Route::resource('address', AddressController::class);
     //Route::resource('category', CategoryController::class);
 
     Route::get("/beans/{month}/month", ["as" => "beans.month", "uses" => "BeansController@month"]);
     Route::get("/order/{productId}/pay", ["as" => "order.pay", "uses" => "OrderController@pay"]);
+    Route::get("/address/{id}/set-default", ["as" => "address.set-default", "uses" => "OrderController@setDefault"]);
 });

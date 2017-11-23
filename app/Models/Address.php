@@ -33,5 +33,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Address extends Model
 {
-    //
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['customer_id', 'default', 'receiver_phone', 'receiver_name', 'province', 'city', 'district', 'address'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
 }

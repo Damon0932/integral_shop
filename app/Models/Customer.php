@@ -42,4 +42,12 @@ class Customer extends Model
     {
         return $this->hasMany(BeansLog::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function addresses()
+    {
+        return $this->hasMany(Address::class);
+    }
 }

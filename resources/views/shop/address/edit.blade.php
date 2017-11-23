@@ -1,80 +1,71 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.shop', [
+    'title' => '编辑地址',
+    'tar_bar' => 'index',
+    'active' => ''
+])
+@section('content')
+    <div class="editAddress">
+        <form action="{{route('address.update', ['id' => $address->id])}}" method="post">
+            @include('layouts.edit_form_common', ['request_id' => $address->id])
+            <dl>
+                <dt>名字</dt>
+                <dd>
+                    <input type="text" placeholder="请输入" name="receiver_name" value="{{$address->receiver_name}}" required>
+                </dd>
+            </dl>
+            <dl>
+                <dt>电话</dt>
+                <dd>
+                    <input type="text" placeholder="请输入" name="receiver_phone" value="{{$address->receiver_phone}}" required>
+                </dd>
+            </dl>
+            <dl>
+                <dt>省份</dt>
+                <dd>
+                    <label>
+                        <select name="province" id="Province" required>
+                        </select>
+                    </label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>城市</dt>
+                <dd>
+                    <label>
+                        <select name="city" id="City" required>
+                        </select>
+                    </label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>区县</dt>
+                <dd>
+                    <label>
+                        <select name="district" id="Area" required>
+                        </select>
+                    </label>
+                </dd>
+            </dl>
+            <dl>
+                <dt>地址</dt>
+                <dd><input type="text" placeholder="请输入详细地址" name="address" required></dd>
+            </dl>
+            {{--<dl>--}}
+                {{--<dt>邮编</dt>--}}
+                {{--<dd><input type="number" placeholder="请输入"></dd>--}}
+            {{--</dl>--}}
+            <div class="submit">
+                <button type="submit">修改</button>
+            </div>
+        </form>
+    </div>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <meta content="yes" name="apple-touch-fullscreen">
-  <meta content="telephone=no,email=no" name="format-detection">
-  <title>编辑</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script>
-</head>
-
-<body>
-  <div class="editAddress">
-    <form action="">
-      <dl>
-        <dt>名字</dt>
-        <dd>
-          <input type="text" placeholder="请输入">
-        </dd>
-      </dl>
-      <dl>
-          <dt>电话</dt>
-          <dd>
-            <input type="text" placeholder="请输入">
-          </dd>
-        </dl>
-      <dl>
-        <dt>省份</dt>
-        <dd>
-          <label>
-            <select name="" id="Province">
-            </select>
-          </label>
-        </dd>
-      </dl>
-      <dl>
-          <dt>城市</dt>
-          <dd>
-            <label>
-              <select name="" id="City">
-              </select>
-            </label>
-          </dd>
-        </dl>
-        <dl>
-            <dt>区县</dt>
-            <dd>
-              <label>
-                <select name="" id="Area">
-                </select>
-              </label>
-            </dd>
-          </dl>
-      <dl>
-        <dt>地址</dt>
-        <dd><input type="text" placeholder="请输入详细地址"></dd>
-      </dl>
-      <dl>
-        <dt>邮编</dt>
-        <dd><input type="number" placeholder="请输入"></dd>
-      </dl>
-    </form>
-    <div class="submit">
-        <button>修改</button>
-      </div>
-  </div>
-
-  <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
-   <script src="js/address.js"></script>
-  <script>
-    addressInit('Province', 'City', 'Area','湖北','武汉市','江夏区');
-    $('.submit').click(function(){
-      console.log($("#Province").val())
-    })
-  </script>
-</body>
-
-</html>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="/js/address.js"></script>
+    <script>
+        addressInit('Province', 'City', 'Area', '{{$address->province}}', '{{$address->city}}', '{{$address->district}}');
+        $('.submit').click(function () {
+            console.log($("#Province").val())
+        })
+    </script>
+@endsection
