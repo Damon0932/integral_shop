@@ -18,9 +18,7 @@ class RefreshBeans
     public function handle($request, Closure $next)
     {
         if (session('med_user')) {
-            session(['med_user' => Customer::find(session('med_user')['id'])]);
-        } else {
-            session(['med_user' => Customer::find(1)->toArray()]);
+            session(['med_user' => Customer::find(session('med_user')['id'])->toArray()]);
         }
         return $next($request);
     }
