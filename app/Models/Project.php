@@ -33,7 +33,18 @@ class Project extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function beansLogs() {
+    public function beansLogs()
+    {
         return $this->hasMany(BeansLog::class);
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getMaxIntegralAttribute()
+    {
+        // TODO get integral
+        return 100;
     }
 }
