@@ -27,8 +27,9 @@
 
         </div>
     </div>
-    <article class="goodList">
-        @foreach($products as $product)
+	<div class="goodContent">
+	  <article class="goodList">
+		@foreach($products as $product)
             <a class="goodItem" href="{{route('product.show',['id' => $product->id])}}">
                 <div class="imgBox">
                     <img src="{{$product->logo}}" alt="">
@@ -48,8 +49,38 @@
                 </div>
             </a>
         @endforeach
-
-    </article>
+	  </article>
+	  <article class="goodList" style="display:none">
+		<a class="goodItem">
+		  <div class="imgBox">
+			<img src="https://placeimg.com/350/350/people/grayscale" alt="">
+		  </div>
+		  <div class="info">
+			<p class="title">丰田 凯美瑞 2012款 2.0 自动 骏瑞耀动版</p>
+			<p class="price">
+			  <span>5000M豆</span>
+			  <em>￥289.00</em>
+			</p>
+			<span class="exchange">立即兑换</span>
+		  </div>
+		</a>
+	  </article>
+	  <article class="goodList" style="display:none">
+		<a class="goodItem">
+		  <div class="imgBox">
+			<img src="https://placeimg.com/350/350/people/grayscale" alt="">
+		  </div>
+		  <div class="info">
+			<p class="title">丰田 凯美瑞 2012款 2.0 自动 骏瑞耀动版</p>
+			<p class="price">
+			  <span>50000M豆</span>
+			  <em>￥289.00</em>
+			</p>
+			<span class="exchange">立即兑换</span>
+		  </div>
+		</a>
+	  </article>
+	</div>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
@@ -76,38 +107,39 @@
             return scrollPos;
         }
 
-        var mySwiper = new Swiper('#topNav', {
-            freeMode: true,
-            slidesPerView: 'auto',
-            freeModeSticky: true,
-        });
+		 var mySwiper = new Swiper('#topNav', {
+			freeMode: true,
+			slidesPerView: 'auto',
+			freeModeSticky: true,
+			onTap: function (swiper, e) {
+			  console.log(swiper.clickedIndex)
+			  slide = swiper.slides[swiper.clickedIndex]
+			  slideLeft = slide.offsetLeft
+			  slideWidth = slide.clientWidth
+			  slideCenter = slideLeft + slideWidth / 2
+			  // 被点击slide的中心点
+			  mySwiper.setWrapperTransition(300)
+			  if (slideCenter < swiperWidth / 2) {
+				mySwiper.setWrapperTranslate(0)
+			  } else if (slideCenter > maxWidth) {
+				mySwiper.setWrapperTranslate(maxTranslate)
+			  } else {
+				nowTlanslate = slideCenter - swiperWidth / 2
+				mySwiper.setWrapperTranslate(-nowTlanslate)
+			  }
+			  $("#topNav  .active").removeClass('active');
+			  $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active');
+			  $(".goodContent .goodList").css("display", "none");
+			  $(".goodContent .goodList").eq(swiper.clickedIndex).css("display", "block");
+			}
+		});
+		  swiperWidth = mySwiper.container[0].clientWidth
+		  maxTranslate = mySwiper.maxTranslate();
+		  maxWidth = -maxTranslate + swiperWidth / 2
 
-        swiperWidth = mySwiper.container[0].clientWidth
-        maxTranslate = mySwiper.maxTranslate();
-        maxWidth = -maxTranslate + swiperWidth / 2
-
-        $(".swiper-container").on('touchstart', function (e) {
-            e.preventDefault()
-        })
-
-        mySwiper.on('tap', function (swiper, e) {
-            slide = swiper.slides[swiper.clickedIndex]
-            slideLeft = slide.offsetLeft
-            slideWidth = slide.clientWidth
-            slideCenter = slideLeft + slideWidth / 2
-            // 被点击slide的中心点
-            mySwiper.setWrapperTransition(300)
-            if (slideCenter < swiperWidth / 2) {
-                mySwiper.setWrapperTranslate(0)
-            } else if (slideCenter > maxWidth) {
-                mySwiper.setWrapperTranslate(maxTranslate)
-            } else {
-                nowTlanslate = slideCenter - swiperWidth / 2
-                mySwiper.setWrapperTranslate(-nowTlanslate)
-            }
-            $("#topNav  .active").removeClass('active')
-            $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active')
-        })
+		  $(".swiper-container").on('touchstart', function (e) {
+			e.preventDefault()
+		  })
 
     </script>
 @endsection
