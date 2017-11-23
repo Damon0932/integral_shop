@@ -60,4 +60,12 @@ class Customer extends Model
     {
         return $this->hasMany(Order::class);
     }
+
+    /**
+     * @return mixed
+     */
+    public function getDefaultAddressAttribute()
+    {
+        return Address::orderBy('default')->whereCustomerId($this->id)->first();
+    }
 }

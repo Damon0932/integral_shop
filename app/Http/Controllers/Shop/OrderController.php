@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Shop;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -115,7 +116,8 @@ class OrderController extends Controller
     public function pay($productId)
     {
         return view('shop.order.pay', [
-            'product' => Product::find($productId)
+            'product' => Product::find($productId),
+            'defaultAddress' => Customer::find(session('med_user')['id'])->defaultAddress,
         ]);
     }
 }

@@ -10,13 +10,15 @@
             <dl>
                 <dt>名字</dt>
                 <dd>
-                    <input type="text" placeholder="请输入" name="receiver_name" value="{{$address->receiver_name}}" required>
+                    <input type="text" placeholder="请输入" name="receiver_name" value="{{$address->receiver_name}}"
+                           required>
                 </dd>
             </dl>
             <dl>
                 <dt>电话</dt>
                 <dd>
-                    <input type="text" placeholder="请输入" name="receiver_phone" value="{{$address->receiver_phone}}" required>
+                    <input type="text" placeholder="请输入" name="receiver_phone" value="{{$address->receiver_phone}}"
+                           required>
                 </dd>
             </dl>
             <dl>
@@ -50,16 +52,24 @@
                 <dt>地址</dt>
                 <dd><input type="text" placeholder="请输入详细地址" name="address" required></dd>
             </dl>
-            {{--<dl>--}}
-                {{--<dt>邮编</dt>--}}
-                {{--<dd><input type="number" placeholder="请输入"></dd>--}}
-            {{--</dl>--}}
-			<div class="addressBtn">
-				<button type="submit" class="btn">修改</button>
-				<a href="" class="btn">删除</a>
-			</div>
+
+            <div class="addressBtn">
+                <button type="submit" class="btn">修改</button>
+
+            </div>
         </form>
+        <div class="addressBtn">
+            <form action="{{route('address.destroy',['id' => $address->id])}}" method="POST">
+                {{ csrf_field() }}
+                {{method_field('delete')}}
+                <input type="hidden" name="id" value="{{$address->id}}"
+                       style="display: none;">
+                <button class="btn" type="submit">删除</button>
+            </form>
+        </div>
+
     </div>
+
 
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="/js/address.js"></script>
