@@ -48,7 +48,7 @@
             });
             $("#integral").text(selectedOption.attr('data-integral'));
             $("#rate").text('1 : ' + selectedOption.attr('data-rate'));
-//            $("#integral_num").max(selectedOption.attr('data-integral'));
+            $("#integral_num").attr('max', selectedOption.attr('data-integral'));
         });
     </script>
 @endsection
