@@ -120,6 +120,6 @@ class AddressController extends Controller
             ->where('id', $id)
             ->update(['default' => 1]);
 
-        return redirect(route('address.index'));
+        return redirect(route('order.pay', ['productId' => session('pay_product_id')]));
     }
 }

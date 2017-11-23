@@ -50,7 +50,7 @@
             </dl>
             <dl>
                 <dt>地址</dt>
-                <dd><input type="text" placeholder="请输入详细地址" name="address" required></dd>
+                <dd><input type="text" placeholder="请输入详细地址" name="address" required value="{{$address->address}}"></dd>
             </dl>
 
             <div class="addressBtn">

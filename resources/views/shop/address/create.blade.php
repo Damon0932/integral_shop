@@ -6,7 +6,7 @@
 @section('content')
     <div class="editAddress">
         <form action="{{route('address.store')}}" method="post">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">>
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
             <dl>
                 <dt>名字</dt>
                 <dd>

@@ -18,7 +18,7 @@
                 <a href="{{route('address.create')}}" class="noaddress"><img src="/images/address.png" alt="">添加地址</a>
             @else
                 <i class="iconfont icon-location"></i>
-                <a href="" class="userInfo">
+                <a href="{{route('address.index')}}" class="userInfo">
                     <p>
                         <span>收货人：</span>
                         {{$defaultAddress->receiver_name}}
@@ -79,9 +79,9 @@
                   </span>
             </div>
             @if(is_null($defaultAddress))
-                <a href="javascript:;" class="go_pay">请选择地址</a>
+                <a href="javascript:;" class="go_pay" style="background-color:#AAAAAA;color:white">请添加地址</a>
             @else
-                <a href="javascript:;" class="go_pay">去付款</a>
+                <a href="javascript:;" class="go_pay" id="go_pay">去付款</a>
             @endif
         </div>
 
@@ -100,7 +100,7 @@
         </div>
     </form>
     <script>
-        $('.go_pay').click(function () {
+        $('#go_pay').click(function () {
             $('#dialog').css('display', 'block');
         })
         $('.dialog-btn-cancel').click(function () {

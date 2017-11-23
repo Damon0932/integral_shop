@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Models\BeansLog;
 use App\Models\Customer;
 use App\Models\Order;
 use App\Models\Product;
-use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -43,10 +43,9 @@ class OrderController extends Controller
     {
         $product = Product::find($request->input('product_id'));
         $customer = Customer::find(session('med_user')['id']);
-        Order::create([
+        $order = Order::create([
             'customer_id' => $customer->id,
             'product_id' => $product->id,
-            'order_sn' => '',
             'beans_fee' => $product->integral,
             'price_fee' => $product->price,
             'status' => 1,
@@ -61,9 +60,17 @@ class OrderController extends Controller
             'beans' => $customer->beans - $product->integral
         ]);
 
+        BeansLog::create([
+            'customer_id' => $customer->id,
+            'order_id' => $order->id,
+            'beans' => $order->beans_fee,
+            'type' => 2,
+            'description' => '兑换'.$product->name,
+        ]);
         $product->update([
             'sale_count' => Order::whereProductId($product->id)->count()
         ]);
+        $order->generateOrderSn();
         return redirect(route('order.index'));
     }
 
@@ -119,6 +126,7 @@ class OrderController extends Controller
      */
     public function pay($productId)
     {
+        session(['pay_product_id' => $productId]);
         return view('shop.order.pay', [
             'product' => Product::find($productId),
             'defaultAddress' => Customer::find(session('med_user')['id'])->defaultAddress,

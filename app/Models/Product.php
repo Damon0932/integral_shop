@@ -104,7 +104,7 @@ class Product extends Model implements Sortable
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function orders() {
         return $this->hasMany(Order::class);

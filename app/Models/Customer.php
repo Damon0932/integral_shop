@@ -36,7 +36,7 @@ class Customer extends Model
      *
      * @var array
      */
-    protected $fillable = ['openid', 'unionid', 'nickname', 'head_image_url'];
+    protected $fillable = ['openid', 'unionid', 'nickname', 'head_image_url', 'beans'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -50,6 +50,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order wherePriceFee($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereProductId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereShippingNo($value)
+ * @property-read \App\Models\BeansLog $beansLog
  */
 class Order extends Model
 {
@@ -90,5 +91,29 @@ class Order extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function beansLog()
+    {
+        return $this->hasOne(BeansLog::class);
+    }
+
+
+    /**
+     * @return string
+     */
+    public function generateOrderSn()
+    {
+        $orderSn = date('YmdHis') . rand(10000000, 99999999);
+        $id = $this->id;
+        for ($i = 0; $i < strlen($orderSn); $i++) {
+            $id += (int)(substr($orderSn, $i, 1));
+        }
+        return $this->update([
+            'order_sn' => $orderSn . str_pad((100 - $id % 100) % 100, 2, '0', STR_PAD_LEFT)
+        ]);
     }
 }
