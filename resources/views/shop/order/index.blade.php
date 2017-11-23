@@ -65,18 +65,16 @@
         </div>
     </div>
     <script>
-        $(function ($) {
-            var widget = $('.orderTab');
-            var tabs = widget.find('tab_item'),
-                    content = widget.find('.order_cont > div');
-            tabs.on('click', function (e) {
-                e.preventDefault();
-                var index = $(this).data('index');
-                tabs.removeClass('active');
-                content.css('display', 'none');
-                $(this).addClass('active');
-                content.eq(index).css('display', 'block');
-            });
+        var widget = $('.orderTab');
+        var tabs = widget.find('tab_item'),
+                content = widget.find('.order_cont > div');
+        tabs.on('click', function (e) {
+            e.preventDefault();
+            var index = $(this).data('index');
+            tabs.removeClass('active');
+            content.css('display', 'none');
+            $(this).addClass('active');
+            content.eq(index).css('display', 'block');
         });
     </script>
 @endsection

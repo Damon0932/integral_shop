@@ -22,7 +22,6 @@
         <a href="{{route('address.create')}}" class="btn">添加新地址</a>
     </div>
     <script>
-    $(function($) {
         var addressid = '';
         $('.select'),click(function){
             if($(this).hasClass('selected')) return false;
@@ -35,6 +34,5 @@
                 window.location.href='/shop/address/'+addressid+'/set-default';
             }
         })
-    });
     </script>
 @endsection
