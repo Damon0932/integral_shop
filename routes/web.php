@@ -23,4 +23,6 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['beans
     Route::resource('beans', BeansController::class);
     Route::resource('order', OrderController::class);
     //Route::resource('category', CategoryController::class);
+
+    Route::get("/beans/{month}/month", ["as" => "beans.month", "uses" => "BeansController@month"]);
 });

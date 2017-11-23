@@ -6,7 +6,7 @@ use App\Models\Customer;
 use Closure;
 use Illuminate\Support\Facades\Session;
 
-class GetBeans
+class RefreshBeans
 {
     /**
      * Handle an incoming request.
@@ -17,11 +17,10 @@ class GetBeans
      */
     public function handle($request, Closure $next)
     {
-        if (session('med_union')) {
-            $beans = Customer::whereUnionid(session('med_union'))->first()->beans;
-            session(['med_beans' => $beans]);
+        if (session('med_user')) {
+            session(['med_user' => Customer::find(session('med_user')['id'])]);
         } else {
-            session(['med_beans' => 0]);
+            session(['med_user' => Customer::find(1)->toArray()]);
         }
         return $next($request);
     }

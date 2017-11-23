@@ -22,6 +22,9 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Customer whereOpenid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Customer whereUnionid($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Customer whereUpdatedAt($value)
+ * @property float|null $beans
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Customer whereBeans($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BeansLog[] $beansLogs
  */
 class Customer extends Model
 {
@@ -30,5 +33,13 @@ class Customer extends Model
      *
      * @var array
      */
-    protected $fillable = [ 'openid', 'unionid', 'nickname', 'head_image_url'];
+    protected $fillable = ['openid', 'unionid', 'nickname', 'head_image_url'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function beansLogs()
+    {
+        return $this->hasMany(BeansLog::class);
+    }
 }

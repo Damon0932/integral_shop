@@ -1,6 +1,6 @@
 @if($tar_bar == 'detail')
     <div class="exchangeBox">
-        @if(session('med_beans') >= $product->integral)
+        @if(session('med_user')['beans'] >= $product->integral)
             <a href="" class="exchange_btn">立即兑换</a>
         @else
             <a href="" class="exchange_btn disabled">M豆不足</a>
@@ -16,7 +16,6 @@
         <a href="javascript:;" class="go_pay">去付款</a>
     </div>
 @elseif($tar_bar == 'order')
-
 @else
     <div class="tabbar">
         <a href="{{route('product.index')}}" class="tabbar_item @if($active == 'product') active @endif">

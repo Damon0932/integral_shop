@@ -44,7 +44,7 @@ class Kernel extends HttpKernel
 
         'shop' => [
             \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
-            \App\Http\Middleware\GetBeans::class,
+            \App\Http\Middleware\RefreshBeans::class,
         ]
     ];
 
@@ -63,6 +63,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
-        'beans' => \App\Http\Middleware\GetBeans::class
+        'refreshBeans' => \App\Http\Middleware\RefreshBeans::class
     ];
 }

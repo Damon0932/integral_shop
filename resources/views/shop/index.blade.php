@@ -13,7 +13,7 @@
                 <a href="#" class="rule">M豆规则？</a>
                 <a href="{{route('beans.index')}}" class="detail">查看明细</a>
             </div>
-            <p>{{session('med_beans')}}</p>
+            <p>{{session('med_user')['beans']}}</p>
 
             <p>可用M豆</p>
         </div>
@@ -41,7 +41,7 @@
                         <span>{{$product->integral}}豆</span>
                         <em>￥{{$product->price}}</em>
                     </p>
-                    @if(session('med_beans') >= $product->integral)
+                    @if(session('med_user')['beans'] >= $product->integral)
                         <span class="exchange">立即兑换</span>
                     @else
                         <span class="notenough">M豆不足</span>

@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
             $table->increments('id');
             $table->string('project_name_en')->nullable();
             $table->string('project_name_cn')->nullable();
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(0)->comment('状态 0.不启用 1.启用');
             $table->decimal('exchange_rate')->default(1);
             $table->string('ip')->nullable();
             $table->timestamps();

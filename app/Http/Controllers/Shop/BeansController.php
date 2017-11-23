@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Models\BeansLog;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +16,10 @@ class BeansController extends Controller
      */
     public function index()
     {
-        return view('shop.beans.index');
+        return view('shop.beans.index', [
+            'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])
+                ->paginate(10)
+        ]);
     }
 
     /**
@@ -24,7 +29,9 @@ class BeansController extends Controller
      */
     public function create()
     {
-        return view('shop.beans.exchange');
+        return view('shop.beans.exchange', [
+            'projects' => Project::whereStatus(1)->get()
+        ]);
     }
 
     /**
@@ -35,7 +42,11 @@ class BeansController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        BeansLog::exchange([
+            'project_id' => $request->input('project_id'),
+            'integral' => $request->input('integral')
+        ]);
+        return redirect(route('beans.index'));
     }
 
     /**
@@ -46,7 +57,9 @@ class BeansController extends Controller
      */
     public function show($id)
     {
-        return view('shop.beans.detail');
+        return view('shop.beans.detail', [
+            'beansLog' => BeansLog::find($id)
+        ]);
     }
 
     /**
@@ -85,6 +98,17 @@ class BeansController extends Controller
 
     public function month($month)
     {
-
+        return view('shop.beans.month', [
+            'month' => $month,
+            'exchange_sum' => BeansLog::whereCustomerId(session('med_user')['id'])
+                ->whereBetween('created_at', [date('Y-m-d h:i:s', strtotime($month)), date('Y-m-d h:i:s', strtotime($month . " +1 month"))])
+                ->whereType(1)->sum('beans'),
+            'used_sum' => BeansLog::whereCustomerId(session('med_user')['id'])
+                ->whereBetween('created_at', [date('Y-m-d h:i:s', strtotime($month)), date('Y-m-d h:i:s', strtotime($month . " +1 month"))])
+                ->whereType(2)->sum('beans'),
+            'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])
+                ->whereBetween('created_at', [date('Y-m-d h:i:s', strtotime($month)), date('Y-m-d h:i:s', strtotime($month . " +1 month"))])
+                ->get()
+        ]);
     }
 }

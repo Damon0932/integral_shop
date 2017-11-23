@@ -1,24 +1,20 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.shop', [
+    'title' => '积分兑换',
+    'tar_bar' => 'index',
+    'active' => 'beans'
+])
+@section('content')
+    <div class="exchangeDetail">
+        <p class="time">时间：{{$beansLog->created_at}}</p>
 
-<head>
-  <meta charset="utf-8">
-  <meta content="yes" name="apple-mobile-web-app-capable">
-  <meta content="yes" name="apple-touch-fullscreen">
-  <meta content="telephone=no,email=no" name="format-detection">
-  <title>迈豆详情</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script>
-</head>
-
-<body>
-  <div class="exchangeDetail">
-    <p class="time">时间：2018-11-24 12:12</p>
-    <div class="detail">
-      <p>M豆变动：<span>+10</span></p>
-      <p>详情：积分转入M豆，您的“迈德分享”微信平台100积分转入</p>
+        <div class="detail">
+            @if($beansLog->type == 1)
+                <p>M豆变动：<span>+ {{$beansLog->beans}}</span></p>
+            @else
+                <p>M豆变动：<span>- {{$beansLog->beans}}</span></p>
+            @endif
+            <p>{{$beansLog->description}}</p>
+        </div>
     </div>
-  </div>
-</body>
+@endsection
 
-</html>
