@@ -95,6 +95,9 @@ class BeansLog extends Model
         }
     }
 
+    /**
+     * @param array $options
+     */
     public function exchangeValidate(array $options)
     {
 
@@ -102,6 +105,7 @@ class BeansLog extends Model
 
     /**
      * @param array $options
+     * @return $this|Model
      */
     public static function exchange(array $options)
     {
@@ -112,7 +116,8 @@ class BeansLog extends Model
         $options['exchanged_rate'] = $options['integral'] * $project->exchanged_rate;
         $options['type'] = 1;
         $options['description'] = '积分转入M豆，您的“' . $project->project_name_cn . '”微信平台' . $options['integral'] . '积分转入';
-        BeansLog::create($options);
-        \Redis::command('HINCRBY', [$project->redis_key, session('med_user')['unionid'], $options['integral']]);
+        $beansLog = BeansLog::create($options);
+        \Redis::command('HINCRBY', [$project->redis_key, session('med_user')['unionid'], -$beansLog->integral]);
+        return $beansLog;
     }
 }
