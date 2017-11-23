@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Models\Customer;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('shop.order.index', [
+            'orders' => Customer::find(session('med_user')['id'])->orders
+        ]);
     }
 
     /**
@@ -36,7 +40,26 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::find($request->input('product_id'));
+        $customer = Customer::find(session('med_user')['id']);
+        Order::create([
+            'customer_id' => $customer->id,
+            'product_id' => $product->id,
+            'order_sn' => '',
+            'beans_fee' => $product->integral,
+            'price_fee' => $product->price,
+            'status' => 1,
+            'address_phone' => $request->input('address_phone'),
+            'address_name' => $request->input('address_name'),
+            'address_province' => $request->input('address_province'),
+            'address_city' => $request->input('address_city'),
+            'address_district' => $request->input('address_district'),
+            'address_detail' => $request->input('address_detail')
+        ]);
+        $customer->update([
+            'beans' => $customer->beans - $product->integral
+        ]);
+        return redirect(route('order.index'));
     }
 
     /**

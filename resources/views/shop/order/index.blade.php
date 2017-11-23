@@ -20,55 +20,38 @@
         </div>
     </div>
     <div class="order_cont">
-        <div class="order_list">
-            <div class="order_hd">
-                <p>
-                    <span class="hd_label">订单号：</span>10054566</p>
+        @if(is_null($orders))
+            @foreach($orders as $order)
+                <div class="order_list">
+                    <div class="order_hd">
+                        <p>
+                            <span class="hd_label">订 单 号：</span>{{$order->order_sn}}</p>
 
-                <p>
-                    <span class="hd_label">时间：</span>2017-05-14</p>
-                <span class="order_status">待发货</span>
-            </div>
-            <div class="order_bd">
-                <div class="img">
-                    <img src="https://placeimg.com/350/350/people/grayscale" alt="">
+                        <p>
+                            <span class="hd_label">下单时间：</span>{{$order->created_at}}</p>
+                        <span class="order_status">{{$order->status_name}}</span>
+                    </div>
+                    <div class="order_bd">
+                        <div class="img">
+                            <img src="{{$order->product->logo}}" alt="">
+                        </div>
+                        <div class="info">
+                            <p class="title">{{$order->product->name}}</p>
+
+                            <p class="speci">{{$order->product->spec}}</p>
+
+                            <p class="price">{{$order->product->integral}}M豆</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="info">
-                    <p class="title">Nike耐克官方ZOOM KOBE VENOMENON 5 EP 科比男子篮球鞋815757</p>
+            @endforeach
+        @else
+            <div class="noData">
+                <img src="images/nodata.png" class="nodata_img" alt="">
 
-                    <p class="speci">500g</p>
-
-                    <p class="price">100M豆</p>
-                </div>
+                <p class="nodata_text">没有相关订单!</p>
             </div>
-        </div>
-        <div class="order_list">
-            <div class="order_hd">
-                <p>
-                    <span class="hd_label">订单号：</span>10054566</p>
-
-                <p>
-                    <span class="hd_label">时间：</span>2017-05-14</p>
-                <span class="order_status">已完成</span>
-            </div>
-            <div class="order_bd">
-                <div class="img">
-                    <img src="https://placeimg.com/350/350/people/grayscale" alt="">
-                </div>
-                <div class="info">
-                    <p class="title">Nike耐克官方ZOOM KOBE VENOMENON 5 EP 科比男子篮球鞋815757</p>
-
-                    <p class="speci">500g</p>
-
-                    <p class="price">100M豆</p>
-                </div>
-                <div class="num">x1</div>
-            </div>
-        </div>
-        <!-- <div class="noData">
-          <img src="images/nodata.png" class="nodata_img" alt="">
-          <p class="nodata_text">没有相关订单!</p>
-        </div> -->
+        @endif
     </div>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 @endsection

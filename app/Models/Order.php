@@ -29,33 +29,42 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Order extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'customer_id',
+        'product_id',
+        'order_sn',
+        'beans_fee',
+        'price_fee',
+        'status',
+        'remark',
+        'shipping_no',
+        'address_phone',
+        'address_name',
+        'address_province',
+        'address_city',
+        'address_district',
+        'address_detail',
+        'delivered_at'
+    ];
 
     /**
-     * @param $customerId
-     * @param $productId
-     * @param array $address
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public static function create($customerId, $productId, array $address)
+    public function customer()
     {
-        $product = Product::find($productId);
-        $options = [
-            'customer_id' => $customerId,
-            //'order_sn' =>,
-            'integral_fee' => $product->integral,
-            'status' => 0,
-        ];
-        $order = parent::create($options);
-        $order->addDetail($address);
-
-        return $order;
+        return $this->belongsTo(Customer::class);
     }
 
     /**
-     * @param array $address
-     * @return $this
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function addDetail(array $address)
+    public function product()
     {
-        return $this;
+        return $this->belongsTo(Product::class);
     }
 }

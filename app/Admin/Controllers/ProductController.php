@@ -74,11 +74,7 @@ class ProductController extends Controller
                 0 => ['text' => 'NO'],
             ])->sortable();
             $grid->order('权重')->editable()->sortable();
-            $grid->filter(function (Grid\Filter $filter) {
-                $filter->equal('name', '名称');
-                $filter->between('price', '市场价');
-                $filter->between('integral', 'M豆');
-            });
+            $grid->editor('detail', '详情')->rules('required');
         });
     }
 

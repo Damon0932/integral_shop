@@ -13,6 +13,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('category', CategoryController::class);
     $router->resource('product', ProductController::class);
-    $router->resource('project', ProjectController::class);
+    $router->resource('index-filter', IndexFilterController::class);
 });
 

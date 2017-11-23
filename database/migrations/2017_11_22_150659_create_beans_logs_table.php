@@ -47,7 +47,7 @@ class CreateBeansLogsTable extends Migration
             $table->dropForeign('beans_logs_customer_id_foreign');
         });
         Schema::table('beans_logs', function (Blueprint $table) {
-            $table->dropForeign('beans_logs_customer_id_foreign');
+            $table->dropForeign('beans_logs_project_id_foreign');
         });
         Schema::table('beans_logs', function (Blueprint $table) {
             $table->dropForeign('beans_logs_order_id_foreign');

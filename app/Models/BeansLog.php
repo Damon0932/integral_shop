@@ -48,9 +48,9 @@ class BeansLog extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function project()
+    public function product()
     {
-        return $this->belongsTo(Project::class);
+        return $this->belongsTo(Product::class);
     }
 
     /**

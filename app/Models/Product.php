@@ -80,4 +80,11 @@ class Product extends Model implements Sortable
         return '//' . config('filesystems')['disks']['qiniu']['domains']['default'] . '/' . $this->logo_url;
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function order() {
+        return $this->belongsToMany(Order::class);
+    }
+
 }
