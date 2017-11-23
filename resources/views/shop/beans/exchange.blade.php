@@ -14,7 +14,8 @@
                         <select name="project_id" id="platform" required>
                             <option value="">请选择</option>
                             @foreach($projects as $project)
-                                <option value="{{$project->id}}" data-integral="{{$project->max_integral}}" data-rate="{{$project->exchange_rate}}">{{$project->project_name_cn}}</option>
+                                <option value="{{$project->id}}" data-integral="{{$project->max_integral}}"
+                                        data-rate="{{$project->exchange_rate}}">{{$project->project_name_cn}}</option>
                             @endforeach
                         </select>
                     </label>
@@ -22,19 +23,16 @@
             </dl>
             <dl>
                 <dt>当前可转积分</dt>
-                <dd id="integral">1200</dd>
-                {{--$project->max_integral--}}
-
+                <dd id="integral"></dd>
             </dl>
             <dl>
                 <dt>积分转M豆比例</dt>
-                <dd id="rate">1：1</dd>
-                {{--$project->exchange_rate--}}
+                <dd id="rate"></dd>
             </dl>
             <dl>
                 <dt>积分转入数量</dt>
                 <dd>
-                    <input type="number" placeholder="请输入" name="integral" required>
+                    <input type="number" placeholder="请输入" name="integral" required max="" min="1" id="integral_num">
                 </dd>
             </dl>
             <div class="submit">
@@ -42,13 +40,16 @@
             </div>
         </form>
     </div>
-	<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
-	<script>
-    $("#platform").change(function(){
-      var selectedOption = $('#platform option').not(function(){ return !this.selected });
-      $("#integral").text(selectedOption.attr('data-integral'));
-      $("#rate").text(selectedOption.attr('data-rate'));
-    });
-  </script>
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script>
+        $("#platform").change(function () {
+            var selectedOption = $('#platform option').not(function () {
+                return !this.selected
+            });
+            $("#integral").text(selectedOption.attr('data-integral'));
+            $("#rate").text('1 : ' + selectedOption.attr('data-rate'));
+//            $("#integral_num").max(selectedOption.attr('data-integral'));
+        });
+    </script>
 @endsection
 
