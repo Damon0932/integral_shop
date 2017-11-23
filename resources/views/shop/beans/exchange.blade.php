@@ -23,6 +23,8 @@
             <dl>
                 <dt>当前可转积分</dt>
                 <dd>1200</dd>
+                {{--$project->max_integral--}}
+
             </dl>
             <dl>
                 <dt>积分转M豆比例</dt>

@@ -1,7 +1,7 @@
 @if($tar_bar == 'detail')
     <div class="exchangeBox">
         @if(session('med_user')['beans'] >= $product->integral)
-            <a href="" class="exchange_btn">立即兑换</a>
+            <a href="{{route('order.pay', ['productId' => $product->id])}}" class="exchange_btn">立即兑换</a>
         @else
             <a href="javascript:;" class="exchange_btn disabled">M豆不足</a>
         @endif
