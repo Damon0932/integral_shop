@@ -64,6 +64,7 @@ class ProjectController extends Controller
     {
         return Admin::grid(Project::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
+            $grid->redis_key('redis键名')->editable();
             $grid->project_name_en('英文名称')->editable();
             $grid->project_name_cn('中文名称')->editable();
             $grid->exchange_rate('汇率')->editable()->sortable();
@@ -87,6 +88,7 @@ class ProjectController extends Controller
     {
         return Admin::form(Project::class, function (Form $form) {
             $form->display('id', 'ID');
+            $form->text('redis_key', 'redis键名');
             $form->text('project_name_en', '英文名称')->rules('required');
             $form->text('project_name_cn', '中文名称')->rules('required');
             $form->decimal('exchange_rate', '汇率')->rules('required');

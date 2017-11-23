@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('status')->default(0)->comment('状态 0.不启用 1.启用');
             $table->decimal('exchange_rate')->default(1);
             $table->string('ip')->nullable();
+            $table->string('redis_key')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

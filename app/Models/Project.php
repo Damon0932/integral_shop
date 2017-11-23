@@ -28,6 +28,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereUpdatedAt($value)
  * @mixin \Eloquent
  * @property-read mixed $max_integral
+ * @property string|null $redis_key
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereRedisKey($value)
  */
 class Project extends Model
 {
@@ -45,7 +47,6 @@ class Project extends Model
      */
     public function getMaxIntegralAttribute()
     {
-        // TODO get integral
-        return 100;
+        return \Redis::command('hget', [$this->redis_key, session('med_user')['unionid']]);
     }
 }
