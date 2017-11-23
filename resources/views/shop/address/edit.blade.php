@@ -58,7 +58,7 @@
 
             </div>
         </form>
-        <div class="addressBtn">
+        <div class="addressBtn" style="margin-top: .266667rem;">
             <form action="{{route('address.destroy',['id' => $address->id])}}" method="POST">
                 {{ csrf_field() }}
                 {{method_field('delete')}}
