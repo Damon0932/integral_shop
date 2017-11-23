@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\Models\Order
  *
- * @mixin \Eloquent
  * @property int $id
  * @property int $customer_id
  * @property string $order_sn
@@ -17,6 +16,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
+ * @property-read \App\Models\Customer $customer
+ * @property-read \App\Models\Product $product
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereCustomerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereDeletedAt($value)
@@ -26,8 +27,29 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereRemark($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereUpdatedAt($value)
- * @property-read \App\Models\Customer $customer
- * @property-read \App\Models\Product $product
+ * @mixin \Eloquent
+ * @property int $product_id
+ * @property float $beans_fee
+ * @property float $price_fee
+ * @property string|null $shipping_no
+ * @property string|null $address_phone
+ * @property string|null $address_name
+ * @property string|null $address_province
+ * @property string|null $address_city
+ * @property string|null $address_district
+ * @property string|null $address_detail
+ * @property string|null $delivered_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressDetail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressDistrict($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressPhone($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereAddressProvince($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereBeansFee($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereDeliveredAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order wherePriceFee($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereProductId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Order whereShippingNo($value)
  */
 class Order extends Model
 {

@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BeansLog[] $beansLogs
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
+ * @property-read mixed $default_address
  */
 class Customer extends Model
 {

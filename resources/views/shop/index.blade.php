@@ -24,63 +24,56 @@
             @foreach($filterArrays as $filterArray)
                 <div class="swiper-slide">{{$filterArray[0]}}-{{$filterArray[1]}}</div>
             @endforeach
-
         </div>
     </div>
-	<div class="goodContent">
-	  <article class="goodList">
-		@foreach($products as $product)
-            <a class="goodItem" href="{{route('product.show',['id' => $product->id])}}">
-                <div class="imgBox">
-                    <img src="{{$product->logo}}" alt="">
-                </div>
-                <div class="info">
-                    <p class="title">{{$product->name}}</p>
+    <div class="goodContent">
+        <article class="goodList">
+            @foreach($products as $product)
+                <a class="goodItem" href="{{route('product.show',['id' => $product->id])}}">
+                    <div class="imgBox">
+                        <img src="{{$product->logo}}" alt="">
+                    </div>
+                    <div class="info">
+                        <p class="title">{{$product->name}}</p>
 
-                    <p class="price">
-                        <span>{{$product->integral}}豆</span>
-                        <em>￥{{$product->price}}</em>
-                    </p>
-                    @if(session('med_user')['beans'] >= $product->integral)
-                        <span class="exchange">立即兑换</span>
-                    @else
-                        <span class="notenough">M豆不足</span>
-                    @endif
-                </div>
-            </a>
+                        <p class="price">
+                            <span>{{$product->integral}}豆</span>
+                            <em>￥{{$product->price}}</em>
+                        </p>
+                        @if(session('med_user')['beans'] >= $product->integral)
+                            <span class="exchange">立即兑换</span>
+                        @else
+                            <span class="notenough">M豆不足</span>
+                        @endif
+                    </div>
+                </a>
+            @endforeach
+        </article>
+        @foreach($productArrays as $productArray)
+            <article class="goodList" style="display:none">
+                @foreach($productArray as $product)
+                    <a class="goodItem" href="{{route('product.show',['id' => $product->id])}}">
+                        <div class="imgBox">
+                            <img src="{{$product->logo}}" alt="">
+                        </div>
+                        <div class="info">
+                            <p class="title">{{$product->name}}</p>
+
+                            <p class="price">
+                                <span>{{$product->integral}}豆</span>
+                                <em>￥{{$product->price}}</em>
+                            </p>
+                            @if(session('med_user')['beans'] >= $product->integral)
+                                <span class="exchange">立即兑换</span>
+                            @else
+                                <span class="notenough">M豆不足</span>
+                            @endif
+                        </div>
+                    </a>
+                @endforeach
+            </article>
         @endforeach
-	  </article>
-	  <article class="goodList" style="display:none">
-		<a class="goodItem">
-		  <div class="imgBox">
-			<img src="https://placeimg.com/350/350/people/grayscale" alt="">
-		  </div>
-		  <div class="info">
-			<p class="title">丰田 凯美瑞 2012款 2.0 自动 骏瑞耀动版</p>
-			<p class="price">
-			  <span>5000M豆</span>
-			  <em>￥289.00</em>
-			</p>
-			<span class="exchange">立即兑换</span>
-		  </div>
-		</a>
-	  </article>
-	  <article class="goodList" style="display:none">
-		<a class="goodItem">
-		  <div class="imgBox">
-			<img src="https://placeimg.com/350/350/people/grayscale" alt="">
-		  </div>
-		  <div class="info">
-			<p class="title">丰田 凯美瑞 2012款 2.0 自动 骏瑞耀动版</p>
-			<p class="price">
-			  <span>50000M豆</span>
-			  <em>￥289.00</em>
-			</p>
-			<span class="exchange">立即兑换</span>
-		  </div>
-		</a>
-	  </article>
-	</div>
+    </div>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
@@ -107,39 +100,39 @@
             return scrollPos;
         }
 
-		 var mySwiper = new Swiper('#topNav', {
-			freeMode: true,
-			slidesPerView: 'auto',
-			freeModeSticky: true,
-			onTap: function (swiper, e) {
-			  console.log(swiper.clickedIndex)
-			  slide = swiper.slides[swiper.clickedIndex]
-			  slideLeft = slide.offsetLeft
-			  slideWidth = slide.clientWidth
-			  slideCenter = slideLeft + slideWidth / 2
-			  // 被点击slide的中心点
-			  mySwiper.setWrapperTransition(300)
-			  if (slideCenter < swiperWidth / 2) {
-				mySwiper.setWrapperTranslate(0)
-			  } else if (slideCenter > maxWidth) {
-				mySwiper.setWrapperTranslate(maxTranslate)
-			  } else {
-				nowTlanslate = slideCenter - swiperWidth / 2
-				mySwiper.setWrapperTranslate(-nowTlanslate)
-			  }
-			  $("#topNav  .active").removeClass('active');
-			  $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active');
-			  $(".goodContent .goodList").css("display", "none");
-			  $(".goodContent .goodList").eq(swiper.clickedIndex).css("display", "block");
-			}
-		});
-		  swiperWidth = mySwiper.container[0].clientWidth
-		  maxTranslate = mySwiper.maxTranslate();
-		  maxWidth = -maxTranslate + swiperWidth / 2
+        var mySwiper = new Swiper('#topNav', {
+            freeMode: true,
+            slidesPerView: 'auto',
+            freeModeSticky: true,
+            onTap: function (swiper, e) {
+                console.log(swiper.clickedIndex)
+                slide = swiper.slides[swiper.clickedIndex]
+                slideLeft = slide.offsetLeft
+                slideWidth = slide.clientWidth
+                slideCenter = slideLeft + slideWidth / 2
+                // 被点击slide的中心点
+                mySwiper.setWrapperTransition(300)
+                if (slideCenter < swiperWidth / 2) {
+                    mySwiper.setWrapperTranslate(0)
+                } else if (slideCenter > maxWidth) {
+                    mySwiper.setWrapperTranslate(maxTranslate)
+                } else {
+                    nowTlanslate = slideCenter - swiperWidth / 2
+                    mySwiper.setWrapperTranslate(-nowTlanslate)
+                }
+                $("#topNav  .active").removeClass('active');
+                $("#topNav .swiper-slide").eq(swiper.clickedIndex).addClass('active');
+                $(".goodContent .goodList").css("display", "none");
+                $(".goodContent .goodList").eq(swiper.clickedIndex).css("display", "block");
+            }
+        });
+        swiperWidth = mySwiper.container[0].clientWidth
+        maxTranslate = mySwiper.maxTranslate();
+        maxWidth = -maxTranslate + swiperWidth / 2
 
-		  $(".swiper-container").on('touchstart', function (e) {
-			e.preventDefault()
-		  })
+        $(".swiper-container").on('touchstart', function (e) {
+            e.preventDefault()
+        })
 
     </script>
 @endsection

@@ -60,6 +60,10 @@ class OrderController extends Controller
         $customer->update([
             'beans' => $customer->beans - $product->integral
         ]);
+
+        $product->update([
+            'sale_count' => Order::whereProductId($product->id)->count()
+        ]);
         return redirect(route('order.index'));
     }
 

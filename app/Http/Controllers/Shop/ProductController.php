@@ -16,14 +16,26 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::whereOnSale(1)->get();
+        // TODO »º´æ
         $filters = IndexFilter::where('key', 'beans_between')->get(['value']);
-        $filterArray = [];
+        $filterArrays = [];
+        $productArrays = [];
         foreach ($filters as $filter) {
-            array_push($filterArray, explode(',', $filter->value));
+            $filterArray = explode(',', $filter->value);
+            array_push($filterArrays, $filterArray);
+            $productArray = [];
+            foreach ($products as $product) {
+                if (is_array($filterArray) && $product->integral > $filterArray[0] && $product->integral < $filterArray[1]) {
+                    array_push($productArray, $product);
+                }
+            }
+            $productArrays[$filter->value] = $productArray;
         }
         return view('shop.index', [
-            'products' => Product::whereOnSale(1)->get(),
-            'filterArrays' => $filterArray
+            'products' => $products,
+            'filterArrays' => $filterArrays,
+            'productArrays' => $productArrays
         ]);
     }
 
