@@ -105,6 +105,6 @@ class BeansLog extends Model
         $options['type'] = 1;
         $options['description'] = '积分转入M豆，您的“' . $project->project_name_cn . '”微信平台' . $options['integral'] . '积分转入';
         BeansLog::create($options);
-        // TODO redis 扣除积分
+        \Redis::command('HINCRBY', [$project->redis_key, session('med_user')['unionid'], $options['integral']]);
     }
 }
