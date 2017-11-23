@@ -18,7 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::any('/wechat', 'Wechat\WechatController@serve');
 
 //// shop
-Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['beans']], function () {
+Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['shop']], function () {
     Route::resource('product', ProductController::class);
     Route::resource('beans', BeansController::class);
     Route::resource('order', OrderController::class);

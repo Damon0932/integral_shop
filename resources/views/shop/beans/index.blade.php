@@ -12,7 +12,7 @@
     </div>
     <div class="integral_hd">
         <div class="left">变动记录</div>
-        <a href="">查看全部</a>
+        <a href="{{route('beans.month', ['month' => date('Y-m')])}}">查看全部</a>
     </div>
     <div class="integral_list">
         @foreach($beansLogs as $beansLog)
