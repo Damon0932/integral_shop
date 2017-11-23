@@ -7,7 +7,7 @@
     <div class="headBalance">
         <p>当前可用M豆</p>
 
-        <div class="balance_num">{{session('med_beans')}}</div>
+        <div class="balance_num">{{session('med_user')['beans']}}</div>
         <a href="{{route('beans.create')}}" class="rollin_btn">积分转入</a>
     </div>
     <div class="integral_hd">
