@@ -70,8 +70,6 @@
 
     </div>
 
-
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="/js/address.js"></script>
     <script>
         addressInit('Province', 'City', 'Area', '{{$address->province}}', '{{$address->city}}', '{{$address->district}}');

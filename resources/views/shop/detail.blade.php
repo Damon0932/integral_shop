@@ -33,7 +33,6 @@
         </div>
     </section>
 
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
         var mySwiper = new Swiper('.swiper-container', {

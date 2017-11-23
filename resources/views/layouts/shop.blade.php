@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/fonts/iconfont.css">
     <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
-    <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/flexible.js"></script>
+    <script src="/js/zepto.min.js"></script>
+    <script src="/js/flexible.js"></script>
 </head>
 
 <body touchstart>

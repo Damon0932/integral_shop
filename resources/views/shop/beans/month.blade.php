@@ -27,7 +27,6 @@
         @endforeach
     </div>
     <div id="targetContainer"></div>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="/js/DataSelector.js"></script>
     <script>
         new DateSelector({

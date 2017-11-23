@@ -40,7 +40,6 @@
             </div>
         </form>
     </div>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script>
         $("#platform").change(function () {
             var selectedOption = $('#platform option').not(function () {

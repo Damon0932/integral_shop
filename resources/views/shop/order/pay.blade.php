@@ -86,7 +86,6 @@
             </div>
         </div>
     </form>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script>
         $('.go_pay').click(function () {
             $('#dialog').show();

@@ -74,7 +74,6 @@
             </article>
         @endforeach
     </div>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
         var navTop = $('#topNav').offset().top;
