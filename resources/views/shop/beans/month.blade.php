@@ -6,7 +6,7 @@
 @section('content')
     <div class="integral_info">
         <div class="date">{{$month}}</div>
-        <p class="info">转入：+ {{$exchange_sum}} 兑换：- {{$used_sum}}</p>
+        <p class="info">转入：<span class="in">+{{$exchange_sum}}</span>兑换：-{{$used_sum}}</p>
         <span class="select_time iconfont icon-riqi" id="date-selector"></span>
     </div>
     <div class="integral_list">
