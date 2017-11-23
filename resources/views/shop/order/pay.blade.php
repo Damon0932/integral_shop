@@ -3,6 +3,7 @@
     'tar_bar' => 'pay'
 ])
 @section('content')
+<form action="" method="post">
     <div class="userOrder">
 		@if()
         <i class="iconfont icon-location"></i>
@@ -68,5 +69,28 @@
         {{--改成 form 表单--}}
         <a href="javascript:;" class="go_pay">去付款</a>
     </div>
+	
+	<div class="dialog dialog-open  dialog-modal" id="dialog"  style="display:none">
+		<div class="dialog-overlay"></div>
+		<div class="dialog-content">
+		  <div class="dialog-content-hd">
+			<h3 class="dialog-content-title">提示</h3>
+		  </div>
+		  <div class="dialog-content-bd content-scroll">确认支付？</div>
+		  <div class="dialog-content-ft side">
+			<button class="dialog-btn dialog-btn-cancel">取消</button>
+			<button class="dialog-btn dialog-btn-confirm" type="submit">确定</button>
+		  </div>
+		</div>
+	</div>
+</form>
     <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	 <script>
+    $('.go_pay').click(function(){
+      $('#dialog').show();
+    })
+    $('.dialog-btn-cancel').click(function(){
+      $('#dialog').hide();
+    })
+  </script>
 @endsection

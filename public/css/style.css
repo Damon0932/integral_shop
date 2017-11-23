@@ -1075,6 +1075,178 @@ a, a:active, a:hover {
     .addressBtn .btn + .btn {
       margin-top: .266667rem; }
 
+.dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10001;
+  width: 100%;
+  height: 100%; }
+
+.dialog-open .dialog-overlay {
+  -webkit-animation-name: fade-in;
+  animation-name: fade-in; }
+
+.dialog-open .dialog-content, .dialog-open .dialog-overlay, .dialog-close .dialog-content, .dialog-close .dialog-overlay {
+  -webkit-animation-duration: .25s;
+  animation-duration: .25s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.dialog-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10002;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.dialog-open .dialog-content {
+  -webkit-animation-name: zoom-in;
+  animation-name: zoom-in; }
+
+.dialog-open .dialog-content, .dialog-open .dialog-overlay, .dialog-close .dialog-content, .dialog-close .dialog-overlay {
+  -webkit-animation-duration: .25s;
+  animation-duration: .25s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.dialog-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10003;
+  width: 90%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  line-height: 1.5;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px; }
+  .dialog-content * {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    font-family: Helvetica;
+    font-size: .4rem; }
+
+.dialog-content-hd {
+  position: relative;
+  padding: .4rem .4rem .266667rem;
+  margin-bottom: -.333333rem;
+  text-align: center; }
+  .dialog-content-hd .dialog-content-title {
+    font-size: .453333rem;
+    font-weight: 400;
+    color: #333; }
+
+.dialog-content-bd {
+  margin: .6rem .266667rem;
+  color: #666;
+  text-align: center; }
+
+.dialog-content-ft {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  font-size: 0; }
+  .dialog-content-ft:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #d5d5d5;
+    color: #d5d5d5;
+    -webkit-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    -ms-transform: scaleY(0.5);
+    transform: scaleY(0.5); }
+  .dialog-content-ft .dialog-btn {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: block;
+    position: relative;
+    display: inline-block;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    color: #007aff;
+    font-size: .4rem;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent; }
+    .dialog-content-ft .dialog-btn:first-child {
+      border-bottom-left-radius: 8px; }
+      .dialog-content-ft .dialog-btn:first-child:after {
+        border-left: none; }
+    .dialog-content-ft .dialog-btn:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1px;
+      height: 100%;
+      border-left: 1px solid #d5d5d5;
+      color: #d5d5d5;
+      -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+      transform-origin: 0 0;
+      -webkit-transform: scaleX(0.5);
+      -ms-transform: scaleX(0.5);
+      transform: scaleX(0.5); }
+    .dialog-content-ft .dialog-btn:active {
+      background-color: rgba(0, 0, 0, 0.05); }
+
+@-webkit-keyframes zoom-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1.2, 1.2); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1, 1); } }
+
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(1.2, 1.2);
+    transform: translate(-50%, -50%) scale(1.2, 1.2); }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1, 1);
+    transform: translate(-50%, -50%) scale(1, 1); } }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-out {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 .date-selector-locked {
   height: 100% !important;
   overflow: hidden !important; }
