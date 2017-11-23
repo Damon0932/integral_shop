@@ -108,7 +108,7 @@ class BeansController extends Controller
                 ->whereType(2)->sum('beans'),
             'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])
                 ->whereBetween('created_at', [date('Y-m-d h:i:s', strtotime($month)), date('Y-m-d h:i:s', strtotime($month . " +1 month"))])
-                ->get()
+                ->orderBy('created_at', 'desc')->get()
         ]);
     }
 }
