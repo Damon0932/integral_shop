@@ -7,7 +7,7 @@
     <div class="addressList">
         @foreach($addresses as $address)
             <div class="address">
-                <div class="select @if($address->default == '1') selected @endif"  data-id="{{$address->id}}"></div>
+                <div class="select @if($address->default == '1') selected @endif" data-id="{{$address->id}}"></div>
                 <div class="detail">
                     <p>{{$address->province.$address->city.$address->district.$address->address}}</p>
 
@@ -31,7 +31,7 @@
        })
        $('#setAddress').click(function(){
             if(addressid !== ''){
-               window.location.href='/shop/address/'+addressid+'/set-default';
+                window.location.href='/shop/address/'+addressid+'/set-default';
            }
        })
     </script>
