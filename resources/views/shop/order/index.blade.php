@@ -66,7 +66,7 @@
     </div>
     <script>
         var widget = $('.orderTab');
-        var tabs = widget.find('tab_item'),
+        var tabs = widget.find('.tab_item'),
                 content = widget.find('.order_cont > div');
         tabs.on('click', function (e) {
             e.preventDefault();
