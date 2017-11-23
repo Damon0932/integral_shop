@@ -11,10 +11,10 @@
                 <dt>选择积分平台</dt>
                 <dd>
                     <label>
-                        <select name="project_id" id="" required>
+                        <select name="project_id" id="platform" required>
                             <option value="">请选择</option>
                             @foreach($projects as $project)
-                                <option value="{{$project->id}}">{{$project->project_name_cn}}</option>
+                                <option value="{{$project->id}}" data-integral="{{$project->max_integral}}" data-rate="{{$project->exchange_rate}}">{{$project->project_name_cn}}</option>
                             @endforeach
                         </select>
                     </label>
@@ -42,5 +42,13 @@
             </div>
         </form>
     </div>
+	<script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+	<script>
+    $("#platform").change(function(){
+      var selectedOption = $('#platform option').not(function(){ return !this.selected });
+      $("#integral").text(selectedOption.attr('data-integral'));
+      $("#rate").text(selectedOption.attr('data-rate'));
+    });
+  </script>
 @endsection
 
