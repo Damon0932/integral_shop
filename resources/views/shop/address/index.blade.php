@@ -22,17 +22,17 @@
         <a href="{{route('address.create')}}" class="btn">添加新地址</a>
     </div>
     <script>
-        var addressid = '';
-        $('.select').click(function){
-            if($(this).hasClass('selected')) return false;
-            $('.address .select').removeClass('selected');
-            $(this).addClass('selected');
-            addressid = $(this).attr('data-id');
-        }
-        $('#setAddress').click(function(){
+       var addressid = '';
+       $('.select').click(function(){
+           if($(this).hasClass('selected')) return false;
+           $('.address .select').removeClass('selected');
+           $(this).addClass('selected');
+           addressid = $(this).attr('data-id');
+       })
+       $('#setAddress').click(function(){
             if(addressid !== ''){
-                window.location.href='/shop/address/'+addressid+'/set-default';
-            }
-        })
+               window.location.href='/shop/address/'+addressid+'/set-default';
+           }
+       })
     </script>
 @endsection
