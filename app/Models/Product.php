@@ -83,8 +83,8 @@ class Product extends Model implements Sortable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function order() {
-        return $this->belongsToMany(Order::class);
+    public function orders() {
+        return $this->hasMany(Order::class);
     }
 
 }
