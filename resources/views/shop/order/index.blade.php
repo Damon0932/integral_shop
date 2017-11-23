@@ -22,6 +22,12 @@
     <div class="order_cont">
         <div>
             @if(is_null($orders))
+                <div class="noData">
+                    <img src="/images/nodata.png" class="nodata_img" alt="">
+
+                    <p class="nodata_text">没有相关订单!</p>
+                </div>
+            @else
                 @foreach($orders as $order)
                     <div class="order_list">
                         <div class="order_hd">
@@ -46,30 +52,30 @@
                         </div>
                     </div>
                 @endforeach
-            @else
-                <div class="noData">
-                    <img src="images/nodata.png" class="nodata_img" alt="">
-
-                    <p class="nodata_text">没有相关订单!</p>
-                </div>
             @endif
         </div>
-        <div style="display:none"></div>
-        <div style="display:none"></div>
-        <div style="display:none"></div>
+        <div style="display:none">
+
+        </div>
+        <div style="display:none">
+
+        </div>
+        <div style="display:none">
+
+        </div>
     </div>
     <script>
-        $(function($) {
+        $(function ($) {
             var widget = $('.orderTab');
             var tabs = widget.find('tab_item'),
-                content = widget.find('.order_cont > div');
+                    content = widget.find('.order_cont > div');
             tabs.on('click', function (e) {
                 e.preventDefault();
                 var index = $(this).data('index');
                 tabs.removeClass('active');
-                content.css('display','none');
+                content.css('display', 'none');
                 $(this).addClass('active');
-                content.eq(index).css('display','block');
+                content.eq(index).css('display', 'block');
             });
         });
     </script>
