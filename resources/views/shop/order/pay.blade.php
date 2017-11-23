@@ -88,10 +88,10 @@
     </form>
     <script>
         $('.go_pay').click(function () {
-            $('#dialog').show();
+            $('#dialog').css('display','block');
         })
         $('.dialog-btn-cancel').click(function () {
-            $('#dialog').hide();
+            $('#dialog').css('display','none');
         })
     </script>
 @endsection
