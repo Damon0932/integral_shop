@@ -23,7 +23,7 @@
     </div>
     <script>
         var addressid = '';
-        $('.select'),click(function){
+        $('.select').click(function){
             if($(this).hasClass('selected')) return false;
             $('.address .select').removeClass('selected');
             $(this).addClass('selected');
