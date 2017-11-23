@@ -51,6 +51,7 @@ use Spatie\EloquentSortable\SortableTrait;
  * @property-read mixed $logo
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereDetail($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Product whereInventory($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
  */
 class Product extends Model implements Sortable
 {
@@ -63,6 +64,28 @@ class Product extends Model implements Sortable
         'order_column_name' => 'order',
         'sort_when_creating' => true,
     ];
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'name',
+        'description',
+        'keyword',
+        'spec',
+        'logo_url',
+        'price',
+        'integral',
+        'on_sale',
+        'sale_counts',
+        'view_counts',
+        'order',
+        'inventory',
+        'detail'
+    ];
+
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -35,6 +35,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $type
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereStatus($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereType($value)
+ * @property int $id
+ * @property-read mixed $type_name
+ * @property-read \App\Models\Product $product
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\BeansLog whereId($value)
  */
 class BeansLog extends Model
 {

@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $beans
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Customer whereBeans($value)
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\BeansLog[] $beansLogs
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $addresses
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Order[] $orders
  */
 class Customer extends Model
 {

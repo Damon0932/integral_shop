@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereReceiverName($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereReceiverPhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Address whereUpdatedAt($value)
+ * @property-read \App\Models\Customer $customer
  */
 class Address extends Model
 {

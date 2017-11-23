@@ -74,7 +74,6 @@ class ProductController extends Controller
                 0 => ['text' => 'NO'],
             ])->sortable();
             $grid->order('权重')->editable()->sortable();
-            $grid->editor('detail', '详情')->rules('required');
         });
     }
 
@@ -96,7 +95,7 @@ class ProductController extends Controller
             $form->number('order', '权重');
             $form->editor('detail', '详情')->rules('required');
             $form->hasMany('banners', function (Form\NestedForm $form) {
-                $form->image('banner_url')->rules('required');
+                $form->image('banner_url');
             });
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '最后修改');
