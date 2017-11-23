@@ -654,6 +654,18 @@ a, a:active, a:hover {
       transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
       position: absolute;
       top: -10px; }
+  .userOrder .noaddress {
+    position: relative;
+    font-size: .4rem;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center;
+    color: #f38441; }
+    .userOrder .noaddress img {
+      width: .666667rem;
+      height: .666667rem;
+      vertical-align: middle; }
 
 .goodOrders {
   position: relative;

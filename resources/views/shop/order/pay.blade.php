@@ -3,27 +3,27 @@
     'tar_bar' => 'pay'
 ])
 @section('content')
-    {{--没有默认地址是时候 是添加地址按钮--}}
     <div class="userOrder">
+		@if()
         <i class="iconfont icon-location"></i>
-
-        <div class="userInfo">
+        <a href="" class="userInfo">
             <p>
                 <span>收货人：</span>
                 马云
             </p>
-
             <p>
                 <span>手机号：</span>
                 13469968705
             </p>
-
             <p>
                 <span>收货地址：</span>
                 湖北神武汉市洪山区光谷大道777号
             </p>
-        </div>
+        </a>
         <div class="orderArrow"></div>
+		@else
+		<a class="noaddress"><img src="images/address.png" alt="">添加地址</a>
+		@endif
     </div>
     <div class="goodOrders">
         <p class="head">商品列表</p>
