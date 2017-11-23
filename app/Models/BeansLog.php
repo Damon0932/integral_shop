@@ -79,7 +79,7 @@ class BeansLog extends Model
     public function getTypeNameAttribute()
     {
         if ($this->type == 1) {
-            return $this->project->name . '积分转入迈豆';
+            return $this->project->project_name_cn . '积分转入迈豆';
         } elseif ($this->type == 2) {
             return $this->order->product->name . '商品兑换';
         } else {
