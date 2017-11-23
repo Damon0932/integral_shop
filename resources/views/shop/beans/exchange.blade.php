@@ -28,7 +28,7 @@
             </dl>
             <dl>
                 <dt>积分转M豆比例</dt>
-                <dd ="rate">1：1</dd>
+                <dd id="rate">1：1</dd>
                 {{--$project->exchange_rate--}}
             </dl>
             <dl>
