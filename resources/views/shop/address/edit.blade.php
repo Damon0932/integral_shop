@@ -54,9 +54,10 @@
                 {{--<dt>邮编</dt>--}}
                 {{--<dd><input type="number" placeholder="请输入"></dd>--}}
             {{--</dl>--}}
-            <div class="submit">
-                <button type="submit">修改</button>
-            </div>
+			<div class="addressBtn">
+				<button type="submit" class="btn">修改</button>
+				<a href="" class="btn">删除</a>
+			</div>
         </form>
     </div>
 

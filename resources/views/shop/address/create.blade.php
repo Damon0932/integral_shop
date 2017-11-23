@@ -55,9 +55,9 @@
             {{--<dd><input type="number" placeholder="请输入"></dd>--}}
             {{--</dl>--}}
 
-            <div class="submit">
-                <button type="submit">添加</button>
-            </div>
+           	<div class="addressBtn">
+				<button type="submit" class="btn">添加</button>
+			</div>
         </form>
     </div>
 

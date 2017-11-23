@@ -1059,7 +1059,7 @@ a, a:active, a:hover {
   padding: .266667rem;
   text-align: center;
   margin-top: 1rem; }
-  .addressBtn a {
+  .addressBtn .btn {
     width: 8.7733rem;
     height: 1.2rem;
     line-height: 1.2rem;
@@ -1072,7 +1072,7 @@ a, a:active, a:hover {
     margin: 0 auto;
     display: block;
     border: none; }
-    .addressBtn a + a {
+    .addressBtn .btn + .btn {
       margin-top: .266667rem; }
 
 .date-selector-locked {
