@@ -117,6 +117,9 @@ class BeansLog extends Model
         $options['type'] = 1;
         $options['description'] = '积分转入M豆，您的“' . $project->project_name_cn . '”微信平台' . $options['integral'] . '积分转入';
         $beansLog = BeansLog::create($options);
+        $beansLog->customer->update([
+            $beansLog->customer->beans += $beansLog->beans
+        ]);
         \Redis::command('HINCRBY', [$project->redis_key, session('med_user')['unionid'], -$beansLog->integral]);
         return $beansLog;
     }
