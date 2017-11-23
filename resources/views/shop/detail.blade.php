@@ -22,7 +22,7 @@
 
             <div class="detail_params">
                 <span class="speci">规格：{{$product->spec}}</span>
-                <span class="sales">已售：{{$product->sale_count}}</span>
+                <span class="sales">已售：{{$product->sale_counts}}</span>
             </div>
         </div>
         <div class="detailImg">
