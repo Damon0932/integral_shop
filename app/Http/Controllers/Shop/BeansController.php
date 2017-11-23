@@ -18,7 +18,7 @@ class BeansController extends Controller
     {
         return view('shop.beans.index', [
             'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])
-                ->paginate(10)
+                ->orderBy('created_at', 'asc')->paginate(10)
         ]);
     }
 
