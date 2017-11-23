@@ -21,11 +21,10 @@
     <div id="topNav">
         <div class="swiper-wrapper">
             <div class="swiper-slide active">全部</div>
-            <div class="swiper-slide">0-199</div>
-            <div class="swiper-slide">200-499</div>
-            <div class="swiper-slide">300-597</div>
-            <div class="swiper-slide">500-799</div>
-            <div class="swiper-slide">799-899</div>
+            @foreach($filterArrays as $filterArray)
+                <div class="swiper-slide">{{$filterArray[0]}}-{{$filterArray[1]}}</div>
+            @endforeach
+
         </div>
     </div>
     <article class="goodList">

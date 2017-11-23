@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Models\IndexFilter;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,14 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $filters = IndexFilter::where('key', 'beans_between')->get(['value']);
+        $filterArray = [];
+        foreach ($filters as $filter) {
+            array_push($filterArray, explode(',', $filter->value));
+        }
         return view('shop.index', [
-            'products' => Product::whereOnSale(1)->get()
+            'products' => Product::whereOnSale(1)->get(),
+            'filterArrays' => $filterArray
         ]);
     }
 
