@@ -3,7 +3,16 @@
     'tar_bar' => 'pay'
 ])
 @section('content')
-    <form action="" method="post">
+    <form action="{{route('order.store')}}" method="post">
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
+        <input type="hidden" name="product_id" value="{{$product->id}}">
+        <input type="hidden" name="address_phone" value="{{$defaultAddress->receiver_phone}}">
+        <input type="hidden" name="receiver_name" value="{{$defaultAddress->receiver_name}}">
+        <input type="hidden" name="province" value="{{$defaultAddress->province}}">
+        <input type="hidden" name="city" value="{{$defaultAddress->city}}">
+        <input type="hidden" name="district" value="{{$defaultAddress->district}}">
+        <input type="hidden" name="address" value="{{$defaultAddress->address}}">
+
         <div class="userOrder">
             @if($defaultAddress)
                 <i class="iconfont icon-location"></i>
@@ -64,11 +73,10 @@
         <div class="payGood">
             <div class="total">
                 实付款：
-      <span class="price">
-        <small>￥</small>{{$product->price}}
-      </span>
+                  <span class="price">
+                    <small>￥</small>{{$product->price}}
+                  </span>
             </div>
-            {{--改成 form 表单--}}
             <a href="javascript:;" class="go_pay">去付款</a>
         </div>
 
@@ -80,18 +88,18 @@
                 </div>
                 <div class="dialog-content-bd content-scroll">确认支付？</div>
                 <div class="dialog-content-ft side">
-                    <button class="dialog-btn dialog-btn-cancel">取消</button>
                     <button class="dialog-btn dialog-btn-confirm" type="submit">确定</button>
+                    <button class="dialog-btn dialog-btn-cancel">取消</button>
                 </div>
             </div>
         </div>
     </form>
     <script>
         $('.go_pay').click(function () {
-            $('#dialog').css('display','block');
+            $('#dialog').css('display', 'block');
         })
         $('.dialog-btn-cancel').click(function () {
-            $('#dialog').css('display','none');
+            $('#dialog').css('display', 'none');
         })
     </script>
 @endsection
