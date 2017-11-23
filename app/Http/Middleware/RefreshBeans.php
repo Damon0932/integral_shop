@@ -19,6 +19,8 @@ class RefreshBeans
     {
         if (session('med_user')) {
             session(['med_user' => Customer::find(session('med_user')['id'])->toArray()]);
+        } else {
+            session(['med_user' => Customer::whereOpenid(session('wechat.oauth_user')->getId())->toArray()]);
         }
         return $next($request);
     }
