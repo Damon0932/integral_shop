@@ -7,7 +7,7 @@
     <div class="addressList">
         @foreach($addresses as $address)
             <div class="address">
-                <div class="select"></div>
+                <div class="select" @if($address->default == '1') selected @endif></div>
                 <div class="detail">
                     <p>{{$address->province.$address->city.$address->district.$address->address}}</p>
 
