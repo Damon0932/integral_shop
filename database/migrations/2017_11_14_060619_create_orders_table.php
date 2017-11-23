@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('customer_id')->unsigned();
             $table->integer('product_id')->unsigned();
-            $table->string('order_sn');
+            $table->string('order_sn')->nullable();
             $table->decimal('beans_fee')->default(0.00);
             $table->decimal('price_fee')->default(0.00);
             $table->tinyInteger('status')->default(0);
