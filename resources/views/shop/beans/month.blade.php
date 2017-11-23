@@ -41,7 +41,7 @@
             recentTime: [],//如不需要设置当前时间，被为空数组，如需要设置的开始的时间点，数组的值对应param参数的对应值。
             success: function (arr) {
                 console.log(arr);
-                //ajax
+                window.location.href='/shop/beans/'+arr[0]+'-'+arr[1]+'/month';
             }//回调
         });
     </script>
