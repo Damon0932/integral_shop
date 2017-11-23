@@ -73,8 +73,5 @@
     <script src="/js/address.js"></script>
     <script>
         addressInit('Province', 'City', 'Area', '{{$address->province}}', '{{$address->city}}', '{{$address->district}}');
-        $('.submit').click(function () {
-            console.log($("#Province").val())
-        })
     </script>
 @endsection

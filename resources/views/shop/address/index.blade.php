@@ -21,5 +21,4 @@
         {{--<a href="{{route('address.set-default', ['id' =>$address->id])}}">设为默认</a>--}}
         <a href="{{route('address.create')}}">添加新地址</a>
     </div>
-    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
 @endsection

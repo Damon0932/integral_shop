@@ -64,8 +64,5 @@
     <script src="/js/address.js"></script>
     <script>
         addressInit('Province', 'City', 'Area');
-        $('.submit').click(function () {
-            console.log($("#Province").val())
-        })
     </script>
 @endsection
