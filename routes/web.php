@@ -18,7 +18,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::any('/wechat', 'Wechat\WechatController@serve');
 
 //// shop
-Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['refreshBeans']], function () {
+Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['shop']], function () {
     Route::resource('product', ProductController::class);
     Route::resource('beans', BeansController::class);
     Route::resource('order', OrderController::class);
@@ -27,5 +27,5 @@ Route::group(['prefix' => 'shop', 'namespace' => 'Shop', 'middleware' => ['refre
 
     Route::get("/beans/{month}/month", ["as" => "beans.month", "uses" => "BeansController@month"]);
     Route::get("/order/{productId}/pay", ["as" => "order.pay", "uses" => "OrderController@pay"]);
-    Route::get("/address/{id}/set-default", ["as" => "address.set-default", "uses" => "OrderController@setDefault"]);
+    Route::get("/address/{id}/set-default", ["as" => "address.set-default", "uses" => "AddressController@setDefault"]);
 });
