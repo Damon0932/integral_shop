@@ -22,13 +22,13 @@
             </dl>
             <dl>
                 <dt>当前可转积分</dt>
-                <dd>1200</dd>
+                <dd id="integral">1200</dd>
                 {{--$project->max_integral--}}
 
             </dl>
             <dl>
                 <dt>积分转M豆比例</dt>
-                <dd>1：1</dd>
+                <dd id="rate">1：1</dd>
                 {{--$project->exchange_rate--}}
             </dl>
             <dl>
