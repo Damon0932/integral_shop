@@ -18,7 +18,7 @@
         @endforeach
     </div>
     <div class="addressBtn">
-        {{--<a href="{{route('address.set-default', ['id' =>$address->id])}}">设为默认</a>--}}
-        <a href="{{route('address.create')}}">添加新地址</a>
+        <a href="" class="btn">设为默认</a>
+        <a href="{{route('address.create')}}" class="btn">添加新地址</a>
     </div>
 @endsection

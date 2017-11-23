@@ -7,15 +7,9 @@
         @endif
     </div>
 @elseif($tar_bar == 'pay')
-    <div class="payGood">
-        <div class="total">实付款：
-            <span class="price">
-                <small>￥</small>198.00
-            </span>
-        </div>
-        <a href="javascript:;" class="go_pay">去付款</a>
-    </div>
+
 @elseif($tar_bar == 'order')
+    
 @else
     <div class="tabbar">
         <a href="{{route('product.index')}}" class="tabbar_item @if($active == 'product') active @endif">
