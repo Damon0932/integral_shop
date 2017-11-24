@@ -51,20 +51,9 @@
     <div class="orderMessage">
         <div class="message_list">
             <dl>
-                <dt>商品合计</dt>
-                <dd class="red_color">￥{{$order->product->price}}</dd>
-            </dl>
-            <dl>
-                <dt>运费</dt>
-                <dd>0.00</dd>
-            </dl>
-            <dl>
                 <dt>M豆抵扣</dt>
                 <dd class="red_color">-{{$order->product->integral}}M豆</dd>
             </dl>
-        </div>
-        <div class="pay_num">实付款：
-            <span>￥{{$order->product->price}}</span>
         </div>
     </div>
 @endsection
