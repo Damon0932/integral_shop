@@ -21,13 +21,13 @@ class OrderController extends Controller
         $orders = Customer::find(session('med_user')['id'])->orders;
         $orderArray = [];
         foreach ($orders as $order) {
-            if(!array_key_exists($order->status, $orderArray)) {
+            if (!array_key_exists($order->status, $orderArray)) {
                 $orderArray[$order->status] = [];
             }
             array_push($orderArray[$order->status], $order);
         }
         return view('shop.order.index', [
-            'orders' => Customer::find(session('med_user')['id'])->orders,
+            'orders' => $orders,
             'orderArray' => $orderArray
         ]);
     }
