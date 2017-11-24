@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Wechat;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use EasyWeChat\Foundation\Application;
 
 class WechatController extends Controller
 {
     /**
-     * ´¦ÀíÎ¢ĞÅµÄÇëÇóÏûÏ¢
+     * å¤„ç†å¾®ä¿¡çš„è¯·æ±‚æ¶ˆæ¯
      *
      * @return string
      */
@@ -16,8 +17,37 @@ class WechatController extends Controller
     {
         $wechat = app('wechat');
         $wechat->server->setMessageHandler(function ($message) {
-            return "»¶Ó­¹Ø×¢»ı·ÖÉÌ³Ç£¡";
+            return "æ¬¢è¿å…³æ³¨ç§¯åˆ†å•†åŸï¼";
         });
         return $wechat->server->serve();
+    }
+
+
+    public function menu()
+    {
+        $wechat = app('wechat');
+        $buttons = [
+            [
+                "type" => "view",
+                "name" => "æˆ‘è¦å…‘æ¢",
+                "url" => route('product.index')
+            ],
+            [
+                "type" => "view",
+                "name" => "å…‘æ¢è®°å½•",
+                "url" => route('order.index')
+            ],
+            [
+                "type" => "view",
+                "name" => "æˆ‘çš„Mè±†",
+                "url" => route('beans.index')
+            ],
+        ];
+        $result = $wechat->menu->add($buttons);
+        if ($result) {
+            return 'success';
+        } else {
+            return 'failed';
+        }
     }
 }
