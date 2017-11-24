@@ -138,7 +138,7 @@ class OrderController extends Controller
         session(['pay_product_id' => $productId]);
         return view('shop.order.pay', [
             'product' => Product::find($productId),
-            'defaultAddress' => Customer::find(session('med_user')['id'])->orderBy('default', 'asc')->defaultAddress,
+            'defaultAddress' => Customer::find(session('med_user')['id'])->defaultAddress,
         ]);
     }
 }

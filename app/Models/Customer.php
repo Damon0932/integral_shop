@@ -67,6 +67,6 @@ class Customer extends Model
      */
     public function getDefaultAddressAttribute()
     {
-        return Address::orderBy('default')->whereCustomerId($this->id)->first();
+        return Address::orderBy('default')->whereCustomerId($this->id)->orderBy('default', 'asc')->first();
     }
 }
