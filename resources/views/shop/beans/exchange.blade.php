@@ -45,6 +45,7 @@
             var selectedOption = $('#platform option').not(function () {
                 return !this.selected
             });
+			if(selectedOption.index() === 0) return;
             $("#integral").text(selectedOption.attr('data-integral'));
             $("#rate").text('1 : ' + selectedOption.attr('data-rate'));
             $("#integral_num").attr('max', selectedOption.attr('data-integral'));
