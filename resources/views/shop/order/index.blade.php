@@ -72,7 +72,7 @@
                                 <span class="hd_label">下单时间：</span>{{$order->created_at}}</p>
                             <span class="order_status">{{$order->status_name}}</span>
                         </div>
-                        <a href="{{route('order.show', ['id' => $order->id])}}">
+                        <a href="{{route('order.show', ['id' => $order->id])}}" class="order_bd">
 
                             <div class="img">
                                 <img src="{{$order->product->logo}}" alt="">
@@ -107,7 +107,7 @@
                                 <span class="hd_label">下单时间：</span>{{$order->created_at}}</p>
                             <span class="order_status">{{$order->status_name}}</span>
                         </div>
-                        <a href="{{route('order.show', ['id' => $order->id])}}">
+                        <a href="{{route('order.show', ['id' => $order->id])}}" class="order_bd">
                             <div class="img">
                                 <img src="{{$order->product->logo}}" alt="">
                             </div>
@@ -141,7 +141,7 @@
                                 <span class="hd_label">下单时间：</span>{{$order->created_at}}</p>
                             <span class="order_status">{{$order->status_name}}</span>
                         </div>
-                        <a href="{{route('order.show', ['id' => $order->id])}}">
+                        <a href="{{route('order.show', ['id' => $order->id])}}" class="order_bd">
                             <div class="img">
                                 <img src="{{$order->product->logo}}" alt="">
                             </div>
