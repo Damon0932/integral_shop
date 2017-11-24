@@ -77,7 +77,7 @@
                 <div class="dialog-content-hd">
                     <h3 class="dialog-content-title">提示</h3>
                 </div>
-                <div class="dialog-content-bd content-scroll">确认支付？</div>
+                <div class="dialog-content-bd content-scroll">确认兑换？</div>
                 <div class="dialog-content-ft side">
                     <button class="dialog-btn dialog-btn-confirm" type="submit">确定</button>
                     <button class="dialog-btn dialog-btn-cancel" type="button">取消</button>

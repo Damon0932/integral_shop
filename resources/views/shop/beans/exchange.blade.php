@@ -36,7 +36,7 @@
                 </dd>
             </dl>
             <div class="submit">
-                <button type="submit">确认转入</button>
+                <button type="submit" id="submit_button">确认转入</button>
             </div>
         </form>
     </div>
@@ -45,10 +45,13 @@
             var selectedOption = $('#platform option').not(function () {
                 return !this.selected
             });
-			if(selectedOption.index() === 0) return;
+            if (selectedOption.index() === 0) return;
             $("#integral").text(selectedOption.attr('data-integral'));
             $("#rate").text('1 : ' + selectedOption.attr('data-rate'));
             $("#integral_num").attr('max', selectedOption.attr('data-integral'));
+            if (selectedOption.attr('data-integral') < 1) {
+                $("#submit_button").attr('disabled', false);
+            }
         });
     </script>
 @endsection
