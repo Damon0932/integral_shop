@@ -533,7 +533,7 @@ a, a:active, a:hover {
     width: 100%;
     height: 100%; }
     .goodDetails .goodSlide img {
-      width: 8.533333rem;
+      width: 10rem;
       vertical-align: middle; }
   .goodDetails .detailHeader {
     padding: .266667rem;
@@ -829,7 +829,9 @@ a, a:active, a:hover {
     .orderUserInfo .info_box > p {
       position: relative;
       padding-left: 2rem;
-      margin: .133333rem 0; }
+      margin: .133333rem 0;
+      height: 30px;
+      line-height: 30px; }
       .orderUserInfo .info_box > p span {
         position: absolute;
         left: 0;
