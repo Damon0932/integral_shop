@@ -51,6 +51,12 @@
             $("#integral_num").attr('max', selectedOption.attr('data-integral'));
             if (selectedOption.attr('data-integral') < 1) {
                 $("#submit_button").attr('disabled', false);
+                $("#submit_button").css('background-color', '#AAAAAA');
+                $("#submit_button").text('积分不足');
+            } else {
+                $("#submit_button").removeAttr('disabled');
+                $("#submit_button").css('background-color', '#f38441');
+                $("#submit_button").text('确认转入');
             }
         });
     </script>
