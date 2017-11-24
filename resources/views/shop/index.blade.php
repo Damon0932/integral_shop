@@ -76,28 +76,16 @@
     </div>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
-        var navTop = $('#topNav').offset().top;
-        $(window).scroll(function () {
-            var yheight = getScrollTop();
-            if (yheight > navTop) {
-                $("#topNav").addClass("fixNav")
-            } else {
-                $("#topNav").removeClass("fixNav");
-            }
-        })
-        function getScrollTop() {
-            var scrollPos;
-            if (window.pageYOffset) {
-                scrollPos = window.pageYOffset;
-            }
-            else if (document.compatMode && document.compatMode != 'BackCompat') {
-                scrollPos = document.documentElement.scrollTop;
-            }
-            else if (document.body) {
-                scrollPos = document.body.scrollTop;
-            }
-            return scrollPos;
-        }
+       $(window).scroll(function () {
+			var goodsListHeight = $('.goodContent').height(); 
+			var goodsListTop = $('.goodContent').offset().top;
+
+			if ($(window).scrollTop() >= goodsListTop && $(window).scrollTop() <= (goodsListHeight + goodsListTop)) {
+			  $('#topNav').addClass('fixNav');
+			} else {
+			  $('#topNav').removeClass('fixNav');
+			}
+		});
 
         var mySwiper = new Swiper('#topNav', {
             freeMode: true,
