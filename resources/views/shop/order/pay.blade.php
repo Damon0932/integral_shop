@@ -7,11 +7,11 @@
         <input type="hidden" name="_token" value="{{csrf_token()}}">
         <input type="hidden" name="product_id" value="{{$product->id}}">
         <input type="hidden" name="address_phone" value="{{$defaultAddress?$defaultAddress->receiver_phone : ''}}">
-        <input type="hidden" name="receiver_name" value="{{$defaultAddress?$defaultAddress->receiver_name : ''}}">
-        <input type="hidden" name="province" value="{{$defaultAddress?$defaultAddress->province : ''}}">
-        <input type="hidden" name="city" value="{{$defaultAddress?$defaultAddress->city : ''}}">
-        <input type="hidden" name="district" value="{{$defaultAddress?$defaultAddress->district : ''}}">
-        <input type="hidden" name="address" value="{{$defaultAddress?$defaultAddress->address : ''}}">
+        <input type="hidden" name="address_name" value="{{$defaultAddress?$defaultAddress->receiver_name : ''}}">
+        <input type="hidden" name="address_province" value="{{$defaultAddress?$defaultAddress->province : ''}}">
+        <input type="hidden" name="address_city" value="{{$defaultAddress?$defaultAddress->city : ''}}">
+        <input type="hidden" name="address_district" value="{{$defaultAddress?$defaultAddress->district : ''}}">
+        <input type="hidden" name="address_detail" value="{{$defaultAddress?$defaultAddress->address : ''}}">
 
         <div class="userOrder">
             @if(is_null($defaultAddress))

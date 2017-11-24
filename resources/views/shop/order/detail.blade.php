@@ -1,7 +1,7 @@
 @extends('layouts.shop', [
     'title' => '积分兑换',
     'tar_bar' => 'index',
-    'active' => 'beans'
+    'active' => 'order'
 ])
 @section('content')
     <div class="orderUserInfo">
