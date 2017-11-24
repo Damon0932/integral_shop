@@ -59,7 +59,7 @@ class Customer extends Model
      */
     public function orders()
     {
-        return $this->hasMany(Order::class);
+        return $this->orderBy('created_at', 'asc')->hasMany(Order::class);
     }
 
     /**
