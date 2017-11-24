@@ -2,13 +2,13 @@
 
     <label for="{{$id}}" class="col-sm-2 control-label">{{$label}}</label>
 
-    <div class="col-sm-8">
+    <div class="{{$viewClass['field']}}">
 
         @include('admin::form.error')
                 <!-- ¼ÓÔØ±à¼­Æ÷µÄÈÝÆ÷ -->
         <script id="container" name="{{$name}}" placeholder="{{ trans('admin::lang.input') }} {{$label}}"
                 type="text/plain" {!! $attributes !!}>
-            {{ old($column, $value) }}
+            {!! old($column, $value) !!}
         </script>
     </div>
 </div>
