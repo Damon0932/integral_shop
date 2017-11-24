@@ -121,6 +121,7 @@ class BeansLog extends Model
             $beansLog->customer->beans += $beansLog->beans
         ]);
         \Redis::command('HINCRBY', [$project->redis_key, session('med_user')['unionid'], -$beansLog->integral]);
+        \Redis::command('HINCRBY', ['sum|user|bonus_points:'.session('med_user')['unionid'], $project->hash_key, -$beansLog->integral]);
         return $beansLog;
     }
 }

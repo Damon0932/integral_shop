@@ -29,7 +29,9 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Eloquent
  * @property-read mixed $max_integral
  * @property string|null $redis_key
+ * @property string|null $hash_key
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereRedisKey($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Project whereHashKey($value)
  */
 class Project extends Model
 {

@@ -21,6 +21,7 @@ class CreateProjectsTable extends Migration
             $table->decimal('exchange_rate')->default(1);
             $table->string('ip')->nullable();
             $table->string('redis_key')->nullable();
+            $table->string('hash_key')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
