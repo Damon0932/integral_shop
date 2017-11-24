@@ -93,7 +93,7 @@ class ProductController extends Controller
             $form->decimal('integral', 'M豆')->rules('required');
             $form->switch('on_sale', '上架');
             $form->number('order', '权重');
-            $form->editor('detail', '详情')->rules('required');
+            $form->ueditor('detail', '详情')->rules('required');
             $form->hasMany('banners', function (Form\NestedForm $form) {
                 $form->image('banner_url');
             });

@@ -180,7 +180,8 @@ return [
          * shop
          */
         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
-        Overtrue\LaravelWechat\ServiceProvider::class
+        Overtrue\LaravelWechat\ServiceProvider::class,
+        Stevenyangecho\UEditor\UEditorServiceProvider::class
     ],
 
     /*
