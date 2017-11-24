@@ -55,7 +55,7 @@
             @endif
         </div>
         <div style="display:none">
-            @if(sizeof($orderArray[1]) > 0)
+            @if(!array_key_exists(1, $orderArray) || sizeof($orderArray[1]) > 0)
                 <div class="noData">
                     <img src="/images/nodata.png" class="nodata_img" alt="">
 
@@ -89,7 +89,7 @@
             @endif
         </div>
         <div style="display:none">
-            @if(sizeof($orderArray[2]) > 0)
+            @if(!array_key_exists(2, $orderArray) || sizeof($orderArray[2]) > 0)
                 <div class="noData">
                     <img src="/images/nodata.png" class="nodata_img" alt="">
 
@@ -123,7 +123,7 @@
             @endif
         </div>
         <div style="display:none">
-            @if(sizeof($orderArray[3]))
+            @if(!array_key_exists(3, $orderArray) || sizeof($orderArray[3]))
                 <div class="noData">
                     <img src="/images/nodata.png" class="nodata_img" alt="">
 
