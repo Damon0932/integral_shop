@@ -41,6 +41,18 @@ a, a:active, a:hover {
   #topNav.fixNav {
     position: fixed;
     top: 0; }
+  #topNav .swiper-wrapper {
+    max-width: 10rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden; }
+    #topNav .swiper-wrapper::-webkit-scrollbar {
+      width: 0;
+      height: 0; }
   #topNav .swiper-slide {
     padding: .2rem .6rem;
     width: auto;
@@ -830,8 +842,8 @@ a, a:active, a:hover {
       position: relative;
       padding-left: 2rem;
       margin: .133333rem 0;
-      height: 30px;
-      line-height: 30px; }
+      height: .4rem;
+      line-height: .4rem; }
       .orderUserInfo .info_box > p span {
         position: absolute;
         left: 0;
