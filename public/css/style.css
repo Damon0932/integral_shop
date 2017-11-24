@@ -670,7 +670,6 @@ a, a:active, a:hover {
 .goodOrders {
   position: relative;
   background: #fff;
-  margin-bottom: .266667rem;
   padding: .266667rem; }
   .goodOrders .head {
     font-size: .373333rem;
@@ -796,17 +795,6 @@ a, a:active, a:hover {
     transform-origin: 0 0;
     -webkit-transform: scale(0.5);
     transform: scale(0.5); }
-  .payGood .total {
-    text-align: center;
-    min-width: 3rem;
-    padding: 0 .266667rem;
-    font-size: .373333rem; }
-    .payGood .total .price {
-      color: #f38441;
-      font-size: .466667rem;
-      font-weight: bold; }
-      .payGood .total .price small {
-        font-size: .266667rem; }
   .payGood .go_pay {
     -webkit-box-flex: 1;
     -webkit-flex: 1;

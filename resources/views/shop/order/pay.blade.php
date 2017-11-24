@@ -59,29 +59,15 @@
         </div>
         <div class="payMent">
             <dl>
-                <dt>商品合计</dt>
-                <dd class="red_color">￥{{$product->price}}</dd>
-            </dl>
-            <dl>
-                <dt>运费</dt>
-                <dd>0.00</dd>
-            </dl>
-            <dl>
                 <dt>M豆抵扣</dt>
                 <dd class="red_color">-{{$product->integral}}M豆</dd>
             </dl>
         </div>
         <div class="payGood">
-            <div class="total">
-                实付款：
-                  <span class="price">
-                    <small>￥</small>{{$product->price}}
-                  </span>
-            </div>
             @if(is_null($defaultAddress))
                 <a href="javascript:;" class="go_pay" style="background-color:#AAAAAA;color:white">请添加地址</a>
             @else
-                <a href="javascript:;" class="go_pay" id="go_pay">去付款</a>
+                <a href="javascript:;" class="go_pay" id="go_pay">立即兑换</a>
             @endif
         </div>
 
