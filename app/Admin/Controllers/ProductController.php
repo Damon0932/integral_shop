@@ -95,7 +95,7 @@ class ProductController extends Controller
             $form->number('order', '权重');
             $form->ueditor('detail', '详情')->rules('required');
             $form->hasMany('banners', function (Form\NestedForm $form) {
-                $form->image('banner_url');
+                $form->image('banner_url')->rules('required');
             });
             $form->display('created_at', '创建时间');
             $form->display('updated_at', '最后修改');

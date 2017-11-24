@@ -32,7 +32,7 @@
             <dl>
                 <dt>积分转入数量</dt>
                 <dd>
-                    <input type="number" placeholder="请输入" name="integral" required max="" min="1" id="integral_num">
+                    <input type="number" placeholder="请输入" name="integral" required max="1" min="1" id="integral_num">
                 </dd>
             </dl>
             <div class="submit">
