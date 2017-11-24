@@ -12,7 +12,7 @@
     <div class="integral_list">
         @foreach($beansLogs as $beansLog)
             <div class="integral_item">
-                <a href="{{route('beans.detail', ['id'=> $beansLog->id])}}">
+                <a href="{{route('beans.show', ['id'=> $beansLog->id])}}">
                     <h4 class="title">{{$beansLog->type_name}}</h4>
 
                     <p class="time">{{$beansLog->created_at}}</p>
