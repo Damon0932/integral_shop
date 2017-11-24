@@ -18,8 +18,14 @@ class OrderController extends Controller
      */
     public function index()
     {
+        $orders = Customer::find(session('med_user')['id'])->orders;
+        $orderArray = [];
+        foreach ($orders as $order) {
+            array_push($orderArray[$order->status], $order);
+        }
         return view('shop.order.index', [
-            'orders' => Customer::find(session('med_user')['id'])->orders
+            'orders' => Customer::find(session('med_user')['id'])->orders,
+            'orderArray' => $orderArray
         ]);
     }
 
@@ -65,7 +71,7 @@ class OrderController extends Controller
             'order_id' => $order->id,
             'beans' => $order->beans_fee,
             'type' => 2,
-            'description' => '兑换'.$product->name,
+            'description' => '兑换' . $product->name,
         ]);
         $product->update([
             'sale_count' => Order::whereProductId($product->id)->count()
@@ -129,7 +135,7 @@ class OrderController extends Controller
         session(['pay_product_id' => $productId]);
         return view('shop.order.pay', [
             'product' => Product::find($productId),
-            'defaultAddress' => Customer::find(session('med_user')['id'])->defaultAddress,
+            'defaultAddress' => Customer::find(session('med_user')['id'])->orderBy('default', 'asc')->defaultAddress,
         ]);
     }
 }
