@@ -17,7 +17,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::whereOnSale(1)->get();
-        // TODO »º´æ
         $filters = IndexFilter::where('key', 'beans_between')->get(['value']);
         $filterArrays = [];
         $productArrays = [];
