@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Models\BeansLog;
-use App\Models\Customer;
-use App\Models\Order;
-use App\Models\Product;
+use App\Models\Shop\Order\Order;
+use App\Models\Shop\Product\Product\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class OrderController extends Controller
+/**
+ * Class OrderController
+ * @package App\Http\Controllers\Shop
+ */
+class OrderController extends ShopController
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,20 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Customer::find(session('med_user')['id'])->orders;
+        $orders = $this->user->orders;
+
+        return view('shop.order.index', [
+            'orders' => $orders,
+            'orderArray' => $this->initOrderArrayByFilter($orders)
+        ]);
+    }
+
+    /**
+     * @param $orders
+     * @return array
+     */
+    protected function initOrderArrayByFilter($orders)
+    {
         $orderArray = [];
         foreach ($orders as $order) {
             if (!array_key_exists($order->status, $orderArray)) {
@@ -26,10 +40,7 @@ class OrderController extends Controller
             }
             array_push($orderArray[$order->status], $order);
         }
-        return view('shop.order.index', [
-            'orders' => $orders,
-            'orderArray' => $orderArray
-        ]);
+        return $orderArray;
     }
 
     /**
@@ -50,14 +61,9 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        $product = Product::find($request->input('product_id'));
-        $customer = Customer::find(session('med_user')['id']);
-        $order = Order::create([
-            'customer_id' => $customer->id,
-            'product_id' => $product->id,
-            'beans_fee' => $product->integral,
-            'price_fee' => $product->price,
-            'status' => 1,
+        Order::create([
+            'customer_id' => $this->user->id,
+            'product_id' => $request->input('product_id'),
             'address_phone' => $request->input('address_phone'),
             'address_name' => $request->input('address_name'),
             'address_province' => $request->input('address_province'),
@@ -65,21 +71,6 @@ class OrderController extends Controller
             'address_district' => $request->input('address_district'),
             'address_detail' => $request->input('address_detail')
         ]);
-        $customer->update([
-            'beans' => $customer->beans - $product->integral
-        ]);
-
-        BeansLog::create([
-            'customer_id' => $customer->id,
-            'order_id' => $order->id,
-            'beans' => $order->beans_fee,
-            'type' => 2,
-            'description' => '兑换' . $product->name,
-        ]);
-        $product->update([
-            'sale_count' => Order::whereProductId($product->id)->count()
-        ]);
-        $order->generateOrderSn();
         return redirect(route('order.index'));
     }
 
@@ -140,7 +131,7 @@ class OrderController extends Controller
         session(['pay_product_id' => $productId]);
         return view('shop.order.pay', [
             'product' => Product::find($productId),
-            'defaultAddress' => Customer::find(session('med_user')['id'])->defaultAddress,
+            'defaultAddress' => $this->user->defaultAddress,
         ]);
     }
 }

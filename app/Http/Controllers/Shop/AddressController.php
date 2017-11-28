@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Models\Address;
-use App\Models\Customer;
+use App\Models\Shop\Address\Address;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 /**
  * Class AddressController
  * @package App\Http\Controllers\Shop
  */
-class AddressController extends Controller
+class AddressController extends ShopController
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +19,7 @@ class AddressController extends Controller
     public function index()
     {
         return view('shop.address.index', [
-            'addresses' => Customer::find(session('med_user')['id'])->addresses
+            'addresses' => $this->user->addresses
         ]);
     }
 
@@ -44,7 +42,7 @@ class AddressController extends Controller
     public function store(Request $request)
     {
         Address::create([
-            'customer_id' => session('med_user')['id'],
+            'customer_id' => $this->user->id,
             'receiver_phone' => $request->input('receiver_phone'),
             'receiver_name' => $request->input('receiver_name'),
             'province' => $request->input('province'),

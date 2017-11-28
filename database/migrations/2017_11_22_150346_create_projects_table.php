@@ -22,6 +22,8 @@ class CreateProjectsTable extends Migration
             $table->string('ip')->nullable();
             $table->string('redis_key')->nullable();
             $table->string('hash_key')->nullable();
+            $table->string('api_url_exchange_point')->nullable();
+            $table->string('api_private_key')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
