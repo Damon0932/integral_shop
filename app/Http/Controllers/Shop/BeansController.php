@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Shop;
 
-use App\Models\BeansLog;
-use App\Models\Project;
+use App\Models\Shop\Beans\BeansLog;
+use App\Models\Shop\Project\Project;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class BeansController extends Controller
+class BeansController extends ShopController
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class BeansController extends Controller
     public function index()
     {
         return view('shop.beans.index', [
-            'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])
-                ->orderBy('created_at', 'desc')->paginate(10)
+            'beansLogs' => $this->user->beansLogs
         ]);
     }
 

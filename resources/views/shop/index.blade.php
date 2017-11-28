@@ -76,23 +76,22 @@
     </div>
     <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>
     <script>
-		 $('#topNav .swiper-slide').click(function(){
-			  $("#topNav  .active").removeClass('active');
-			  $("#topNav .swiper-slide").eq($(this).index()).addClass('active');
-			  $(".goodContent .goodList").css("display", "none");
-			  $(".goodContent .goodList").eq($(this).index()).css("display", "block");
-		  })
-
-		  $(window).scroll(function () {
-				var goodsListHeight = $('.goodContent').height(); 
-				var goodsListTop = $('.goodContent').offset().top;
-
-				if ($(window).scrollTop() >= goodsListTop && $(window).scrollTop() <= (goodsListHeight + goodsListTop)) {
-				  $('#topNav').addClass('fixNav');
-				} else {
-				  $('#topNav').removeClass('fixNav');
-				}
-			});
-
+        $('#topNav .swiper-slide').click(function () {
+            $("#topNav  .active").removeClass('active');
+            $("#topNav .swiper-slide").eq($(this).index()).addClass('active');
+            $(".goodContent .goodList").css("display", "none");
+            $(".goodContent .goodList").eq($(this).index()).css("display", "block");
+        })
+//
+//        $(window).scroll(function () {
+//            var goodsListHeight = $('.goodContent').height();
+//            var goodsListTop = $('.goodContent').offset().top;
+//
+//            if ($(window).scrollTop() >= goodsListTop && $(window).scrollTop() <= (goodsListHeight + goodsListTop)) {
+//                $('#topNav').addClass('fixNav');
+//            } else {
+//                $('#topNav').removeClass('fixNav');
+//            }
+//        });
     </script>
 @endsection

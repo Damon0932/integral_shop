@@ -40,11 +40,6 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
             'bindings',
-        ],
-
-        'shop' => [
-            \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
-            \App\Http\Middleware\RefreshBeans::class,
         ]
     ];
 
@@ -62,7 +57,6 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class,
-        'refreshBeans' => \App\Http\Middleware\RefreshBeans::class
+        'wechat.oauth' => \Overtrue\LaravelWechat\Middleware\OAuthAuthenticate::class
     ];
 }

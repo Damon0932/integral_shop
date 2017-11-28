@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_sn')->nullable();
             $table->decimal('beans_fee')->default(0.00);
             $table->decimal('price_fee')->default(0.00);
-            $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('status')->default(1);
             $table->string('remark')->nullable();
 
             $table->string('shipping_no')->nullable();

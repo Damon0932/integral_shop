@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Shop;
 
 use App\Models\IndexFilter;
-use App\Models\Product;
+use App\Models\Shop\Product\Product\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+/**
+ * Class ProductController
+ * @package App\Http\Controllers\Shop
+ */
 class ProductController extends Controller
 {
     /**
@@ -15,6 +19,19 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        $itemsArray = $this->getIndexItemsArray();
+        return view('shop.index', [
+            'products' => $itemsArray['product'],
+            'filterArrays' => $itemsArray['filterArrays'],
+            'productArrays' => $itemsArray['productArrays'],
+        ]);
+    }
+
+    /**
+     * @return array
+     */
+    private function getIndexItemsArray()
     {
         $products = Product::whereOnSale(1)->get();
         $filters = IndexFilter::where('key', 'beans_between')->get(['value']);
@@ -31,11 +48,11 @@ class ProductController extends Controller
             }
             $productArrays[$filter->value] = $productArray;
         }
-        return view('shop.index', [
-            'products' => $products,
+        return [
             'filterArrays' => $filterArrays,
-            'productArrays' => $productArrays
-        ]);
+            'productArrays' => $productArrays,
+            'products' => $products,
+        ];
     }
 
     /**
