@@ -2,6 +2,8 @@
 
 namespace App\Models\Shop\Beans;
 
+use App\Models\Shop\Beans\Traits\Attribute\BeansLogAttribute;
+use App\Models\Shop\Beans\Traits\Relationship\BeansLogRelationship;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Shop\Project\Project;
 use App\Facades\Bean\Bean;
@@ -39,6 +41,7 @@ use App\Facades\Bean\Bean;
  */
 class BeansLog extends Model
 {
+    use BeansLogAttribute, BeansLogRelationship;
     /**
      * The attributes that are mass assignable.
      *

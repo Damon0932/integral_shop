@@ -2,6 +2,8 @@
 
 namespace App\Models\Shop\Product\Product;
 
+use App\Models\Shop\Product\Product\Traits\Attribute\ProductAttribute;
+use App\Models\Shop\Product\Product\Traits\Relationship\ProductRelationship;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\EloquentSortable\Sortable;
 use Spatie\EloquentSortable\SortableTrait;
@@ -50,7 +52,7 @@ use Spatie\EloquentSortable\SortableTrait;
  */
 class Product extends Model implements Sortable
 {
-    use SortableTrait;
+    use SortableTrait, ProductAttribute, ProductRelationship;
 
     /**
      * @var array

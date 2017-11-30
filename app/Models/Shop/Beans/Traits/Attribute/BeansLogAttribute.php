@@ -5,7 +5,7 @@ namespace App\Models\Shop\Beans\Traits\Attribute;
 /**
  * Class BeansLogAttribute
  * @package App\Models\Shop\Beans\Traits\Attribute
- * @mixin \Eloquent
+ * @mixin  \App\Models\Shop\Beans\BeansLog
  */
 trait BeansLogAttribute
 {

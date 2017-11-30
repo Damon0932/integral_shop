@@ -2,6 +2,8 @@
 
 namespace App\Models\Shop\Product\ProductBanner;
 
+use App\Models\Shop\Product\ProductBanner\Traits\Attribute\ProductBannerAttribute;
+use App\Models\Shop\Product\ProductBanner\Traits\Relationship\ProductBannerRelationship;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -21,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ProductBanner extends Model
 {
+    use ProductBannerAttribute, ProductBannerRelationship;
     /**
      * The attributes that are mass assignable.
      *

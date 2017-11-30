@@ -87,7 +87,6 @@ class Order extends Model
                 $options['price_fee'] = $product->price;
                 $order = self::create($options);
 
-
                 $customer->update([
                     'beans' => $customer->beans - $product->integral
                 ]);
