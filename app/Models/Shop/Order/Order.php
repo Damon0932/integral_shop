@@ -99,9 +99,9 @@ class Order extends Model
                     'description' => '兑换' . $product->name,
                 ]);
                 // TODO 队列
-                $product->update([
-                    'sale_count' => Order::whereProductId($product->id)->count()
-                ]);
+//                $product->update([
+//                    'sale_count' => Order::whereProductId($product->id)->count()
+//                ]);
                 $order->generateOrderSn();
                 return $order;
             });
