@@ -16,10 +16,13 @@ class RefreshBeans
      */
     public function handle($request, Closure $next)
     {
-        try {
-            session(['med_user' => Customer::whereOpenid(session('wechat.oauth_user')->getId())->toArray()]);
-        } catch (\Exception $e) {
-            abort(500);
+
+        if (session()->has('wechat.oauth_user')) {
+            try {
+                session(['med_user' => Customer::whereOpenid(session('wechat.oauth_user')->getId())->toArray()]);
+            } catch (\Exception $e) {
+                abort(500);
+            }
         }
         return $next($request);
     }
