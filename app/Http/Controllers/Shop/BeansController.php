@@ -17,7 +17,7 @@ class BeansController extends Controller
     public function index()
     {
         return view('shop.beans.index', [
-            'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])->orderBy('created_at', 'desc')->take(10)
+            'beansLogs' => BeansLog::whereCustomerId(session('med_user')['id'])->orderBy('created_at', 'desc')->take(10)->get()
         ]);
     }
 
