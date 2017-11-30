@@ -5,13 +5,12 @@ namespace App\Http\Controllers\Shop;
 use App\Models\IndexFilter;
 use App\Models\Shop\Product\Product\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 /**
  * Class ProductController
  * @package App\Http\Controllers\Shop
  */
-class ProductController extends Controller
+class ProductController extends ShopController
 {
     /**
      * Display a listing of the resource.
