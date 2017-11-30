@@ -3,7 +3,6 @@
 namespace App\Models\Shop\Order;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Shop\Order\Traits\Attribute\OrderAttribute;
 use App\Models\Shop\Order\Traits\Relationship\OrderRelationship;
 use App\Models\Shop\Product\Product\Product;
 use App\Models\Shop\Beans\BeansLog;
@@ -75,7 +74,7 @@ class Order extends Model
      * @return mixed
      * @throws \Exception
      */
-    public static function create(array $options = [])
+    public static function pay(array $options = [])
     {
         $product = Product::find($options['product_id']);
         $customer = Customer::find($options['customer_id']);
@@ -86,7 +85,7 @@ class Order extends Model
                 $options['beans_fee'] = $product->integral;
                 $options['price_fee'] = $product->price;
                 $order = self::create($options);
-
+                
                 $customer->update([
                     'beans' => $customer->beans - $product->integral
                 ]);
@@ -99,9 +98,9 @@ class Order extends Model
                     'description' => '兑换' . $product->name,
                 ]);
                 // TODO 队列
-//                $product->update([
-//                    'sale_count' => Order::whereProductId($product->id)->count()
-//                ]);
+                $product->update([
+                    'sale_count' => Order::whereProductId($product->id)->count()
+                ]);
                 $order->generateOrderSn();
                 return $order;
             });

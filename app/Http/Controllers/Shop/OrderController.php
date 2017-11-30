@@ -62,7 +62,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        Order::create([
+        Order::pay([
             'customer_id' => session('med_user')['id'],
             'product_id' => $request->input('product_id'),
             'address_phone' => $request->input('address_phone'),
