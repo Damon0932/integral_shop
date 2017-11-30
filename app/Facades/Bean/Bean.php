@@ -102,7 +102,7 @@ class Bean
             return $client->hget($projectKey, $unionId);
         } catch (\Exception $e) {
             // TODO log
-            //dd($e->getMessage());
+            abort($e->getMessage());
         }
         return 0;
     }
