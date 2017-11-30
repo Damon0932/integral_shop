@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers\Shop;
 
+use App\Models\Shop\Address\Address;
 use App\Models\Shop\Order\Order;
 use App\Models\Shop\Product\Product\Product;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 /**
  * Class OrderController
  * @package App\Http\Controllers\Shop
  */
-class OrderController extends ShopController
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +21,7 @@ class OrderController extends ShopController
      */
     public function index()
     {
-        $orders = $this->user->orders;
-
+        $orders = Order::whereCustomerId(session('med_user')['id'])->get();
         return view('shop.order.index', [
             'orders' => $orders,
             'orderArray' => $this->initOrderArrayByFilter($orders)
@@ -62,7 +63,7 @@ class OrderController extends ShopController
     public function store(Request $request)
     {
         Order::create([
-            'customer_id' => $this->user->id,
+            'customer_id' => session('med_user')['id'],
             'product_id' => $request->input('product_id'),
             'address_phone' => $request->input('address_phone'),
             'address_name' => $request->input('address_name'),
@@ -131,7 +132,7 @@ class OrderController extends ShopController
         session(['pay_product_id' => $productId]);
         return view('shop.order.pay', [
             'product' => Product::find($productId),
-            'defaultAddress' => $this->user->defaultAddress,
+            'defaultAddress' => Address::orderBy('default')->whereCustomerId(session('med_user')['id'])->orderBy('default', 'asc')->first()
         ]);
     }
 }
