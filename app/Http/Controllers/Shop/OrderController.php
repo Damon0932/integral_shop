@@ -21,7 +21,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::whereCustomerId(session('med_user')['id'])->get();
+        $orders = Order::whereCustomerId(session('med_user')['id'])->orderBy('created_at', 'desc')->take(10);
         return view('shop.order.index', [
             'orders' => $orders,
             'orderArray' => $this->initOrderArrayByFilter($orders)
