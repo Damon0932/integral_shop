@@ -19,7 +19,7 @@ class RefreshBeans
 
         if (session()->has('wechat.oauth_user')) {
             try {
-                session(['med_user' => Customer::whereOpenid(session('wechat.oauth_user')->getId())->toArray()]);
+                session(['med_user' => Customer::whereOpenid(session('wechat.oauth_user')->getId())->first()->toArray()]);
             } catch (\Exception $e) {
                 abort(500);
             }
