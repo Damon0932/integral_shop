@@ -11,7 +11,9 @@ class ShopController extends Controller
 
     public function __construct()
     {
-        $this->user = Customer::whereOpenid(session('wechat.oauth_user')->getId())->first();
-        session(['med_user' => $this->user->toArray()]);
+        if (session('wechat.oauth_user')) {
+            $this->user = Customer::whereOpenid(session('wechat.oauth_user')->getId())->first();
+            session(['med_user' => $this->user->toArray()]);
+        }
     }
 }
