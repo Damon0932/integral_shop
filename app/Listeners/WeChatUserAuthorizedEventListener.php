@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Models\Customer;
+use App\Models\Shop\Customer\Customer;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Overtrue\LaravelWechat\Events\WeChatUserAuthorized;

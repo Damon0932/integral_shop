@@ -21,7 +21,7 @@ class ProductController extends ShopController
     {
         $itemsArray = $this->getIndexItemsArray();
         return view('shop.index', [
-            'products' => $itemsArray['product'],
+            'products' => $itemsArray['products'],
             'filterArrays' => $itemsArray['filterArrays'],
             'productArrays' => $itemsArray['productArrays'],
         ]);
