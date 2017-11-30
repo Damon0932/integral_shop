@@ -2,6 +2,7 @@
 
 namespace App\Models\Shop\Project;
 
+use App\Models\Shop\Project\Traits\Attribute\ProjectAttribute;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -37,6 +38,5 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Project extends Model
 {
-
-
+    use ProjectAttribute;
 }
