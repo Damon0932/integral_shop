@@ -17,8 +17,8 @@ class Bean
 
     public function __construct()
     {
-        $this->user = session('wechat.oauth_user');
-        $this->unionid = $this->user->original['unionid'];
+        $this->user = session('med_user');
+        $this->unionid = $this->user['unionid'];
     }
 
     /**
@@ -43,15 +43,16 @@ class Bean
             $response = $client->request('POST', $project->api_url_exchange_point, [
                 'json' => $params
             ]);
-            $responseArray = json_decode($response->getBody()->getContents());
-            if ($responseArray['errCode'] == 200) {
+            $responseJson = json_decode($response->getBody()->getContents());
+            if ($responseJson->errCode == 200) {
                 return true;
+            } else {
+                throw new \Exception($responseJson->reason);
             }
         } catch (RequestException $e) {
             // TODO log
-            //return $e->getCode();
+            throw new \Exception($e->getMessage());
         }
-        return false;
     }
 
     /**

@@ -66,17 +66,12 @@ class BeansLog extends Model
             $options['type'] = 1;
             $options['description'] = '积分转入M豆，您的“' . $project->project_name_cn . '”微信平台' . $options['integral'] . '积分转入';
             $beansLog = self::create($options);
-            if (!$beansLog) {
-                throw new \Exception("create beansLog error.");
-            }
-            if ($beansLog->customer->update([$beansLog->customer->beans += $beansLog->beans])) {
-                throw new \Exception("customer beans update error.");
-            }
+            $beansLog->customer->update([$beansLog->customer->beans += $beansLog->beans]);
             \DB::commit();
             return $beansLog;
         } catch (\Exception $e) {
             \DB::rollback();
-            throw new \Exception("exchange api error.http-status-code:" . $e->getCode());
+            throw new \Exception($e->getMessage());
         }
     }
 }
