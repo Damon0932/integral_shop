@@ -13,7 +13,7 @@ use Predis\Client as RedisClient;
  */
 class Bean
 {
-    protected $unionid, $user;
+    protected $unionid, $user, $redisServer;
 
     public function __construct()
     {
@@ -97,12 +97,10 @@ class Bean
      */
     public static function getPointByUnionId($projectKey, $unionId)
     {
-        $client = new RedisClient();
         try {
-            return $client->hget($projectKey, $unionId);
+            return (new RedisClient(config('database.redis.default')))->hget($projectKey, $unionId);
         } catch (\Exception $e) {
             // TODO log
-            abort($e->getMessage());
         }
         return 0;
     }
