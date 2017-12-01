@@ -14,7 +14,7 @@
                         <select name="project_id" id="platform" required>
                             <option value="">请选择</option>
                             @foreach($projects as $project)
-                                <option value="{{$project->id}}" data-integral="{{$project->max_integral}}"
+                                <option value="{{$project->id}}" data-integral="{{$project->integral}}"
                                         data-rate="{{$project->exchange_rate}}">{{$project->project_name_cn}}</option>
                             @endforeach
                         </select>
