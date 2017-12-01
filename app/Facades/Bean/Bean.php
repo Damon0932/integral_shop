@@ -47,10 +47,11 @@ class Bean
             if ($responseJson->errCode == 200) {
                 return true;
             } else {
+                \Log::error('api[point_record]', ['request' => $params, 'response' => $responseJson]);
                 throw new \Exception($responseJson->reason);
             }
         } catch (RequestException $e) {
-            // TODO log
+            \Log::error('api[point_record]', ['request' => $params, 'response' => $responseJson]);
             throw new \Exception($e->getMessage());
         }
     }
