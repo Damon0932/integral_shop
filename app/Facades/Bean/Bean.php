@@ -35,7 +35,7 @@ class Bean
         $client = new HttpClient();
         $params = [
             'userId' => $this->unionid,
-            'point' => $point,
+            'point' => (int)$point,
             'timestamp' => self::getMsec()
         ];
         $params['signature'] = $this->genSignature($params, $project->api_private_key);
@@ -47,11 +47,11 @@ class Bean
             if ($responseJson->errCode == 200) {
                 return true;
             } else {
-                \Log::error('api[point_record]', ['request' => $params, 'response' => $responseJson]);
+                $params['private_key'] = $project->api_private_key;
+                \Log::info('api[point_record]', ['request' => $params, 'response' => $responseJson]);
                 throw new \Exception($responseJson->reason);
             }
         } catch (RequestException $e) {
-            \Log::error('api[point_record]', ['request' => $params, 'response' => $responseJson]);
             throw new \Exception($e->getMessage());
         }
     }
@@ -67,12 +67,12 @@ class Bean
             $params['timestamp'] = time() * 1000;
         }
         ksort($params);
-        $signature_string = '';
+        $signatureString = '';
         foreach ($params as $key => $val) {
-            $signature_string .= $key . ':' . json_encode($val, JSON_UNESCAPED_UNICODE) . ',';
+            $signatureString .= $key . ':' . json_encode($val, JSON_UNESCAPED_UNICODE) . ',';
         }
-        $signature_string .= 'privateKey:' . $privateKey;
-        return sha1($signature_string);
+        $signatureString .= 'privateKey:' . $privateKey;
+        return sha1($signatureString);
     }
 
     /**
